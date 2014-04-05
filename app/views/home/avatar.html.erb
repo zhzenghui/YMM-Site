@@ -1,0 +1,8 @@
+<%= form_for avatar_path, :html => {:multipart => true} do |f| %>
+  <p>
+    <label>My Avatar</label>
+    <%= file_field_tag :avatar %>
+
+    <%= f.submit %>
+  </p>
+<% end %>
