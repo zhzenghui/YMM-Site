@@ -15,7 +15,6 @@ Yue::Application.routes.draw do
 
   resources :posts do
     resources :comments
-    resources :tags
   end
 
   match '/help',    to: 'static_pages#help',    via: 'get'
