@@ -26,7 +26,7 @@ gem 'therubyracer'
 
 
 # File upload
-gem "paperclip", "~> 4.1.1"
+gem "paperclip",  :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'cocaine', '~> 0.5.3'
 gem 'mime-types'
 
