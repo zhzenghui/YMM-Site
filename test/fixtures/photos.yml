@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buyShow: false
+  is_conver: false
+  ablum_id: 
+  status: 1
+
+two:
+  buyShow: false
+  is_conver: false
+  ablum_id: 
+  status: 1

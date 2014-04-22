@@ -1,0 +1,2 @@
+module AblumsHelper
+end

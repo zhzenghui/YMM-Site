@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Buyshow:</strong>
+  <%= @photo.buyShow %>
+</p>
+
+<p>
+  <strong>Is conver:</strong>
+  <%= @photo.is_conver %>
+</p>
+
+<p>
+  <strong>Ablum:</strong>
+  <%= @photo.ablum %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @photo.status %>
+</p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

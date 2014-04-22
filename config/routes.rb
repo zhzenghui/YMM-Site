@@ -1,4 +1,8 @@
 Yue::Application.routes.draw do
+  resources :photos
+
+  resources :ablums
+
   get "images/index"
   get "images/new"
   get "images/show"
@@ -28,9 +32,11 @@ Yue::Application.routes.draw do
         post 'registrations' => 'registrations#create', :as => 'register'
         post 'sessions' => 'sessions#create', :as => 'login'
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
+        
         get 'post' => 'post#index', :as => 'post'
         get "info" => 'post#info', :as=> 'info'
         post "upload" => 'post#upload', :as => 'upload'
+
 
 
       end

@@ -8,14 +8,22 @@ class Api::V1::PostController < ApplicationController
 
   def index
 
+    @posts =  current_user.posts.paginate(:page => params[:page])
     
-   render :status => :unprocessable_entity,
-          :json => { :success => false,
-                     :info =>" @task.errors.full_messages",
-                     :data => {} }
+
+# do |post|
+#   json.extract! post, :id, :title, :text, :user_id
+#   json.url post_url(post, format: :json)
+# end
+    render :status => :unprocessable_entity,
+            :json => { :success => true,
+                     :info => "",
+                     :data => @posts }
+
   end
 
 
+  
   def info
    render :status => :unprocessable_entity,
           :json => { :success => false,
@@ -32,9 +40,6 @@ class Api::V1::PostController < ApplicationController
                      :info =>" @task.errors.full_messages",
                      :data => {} }
   end 
-
-
-
 
 
 end

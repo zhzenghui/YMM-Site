@@ -21,5 +21,6 @@ module Yue
     config.i18n.default_locale = :en#'zh-CN'
 
     config.assets.precompile +=%w(*.png *.jpg *.jpeg *.gif)
+
   end
 end

@@ -1,14 +1,15 @@
 class HomeController < ApplicationController
   def index 
-    
-    
+    logger.info(current_user)
+    logger.info("&&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&")
+        logger.info("&&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&")
+
      
   end
 
   def create 
 
-	logger.info("&&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&")
-	logger.info("save   info ")
+	   logger.info("&&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&")
   	logger.info(current_user)
   	logger.info("&&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&")
   	
@@ -22,7 +23,11 @@ class HomeController < ApplicationController
 
   def avatar
 
+    @user = current_user
 
+
+
+    
   end
 
 end

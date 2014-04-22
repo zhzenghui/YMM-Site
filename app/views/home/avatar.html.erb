@@ -1,3 +1,10 @@
+<br />
+<%= image_tag current_user.avatar.url %> <br />
+<%= image_tag current_user.avatar.url(:medium) %> <br />
+<%= image_tag current_user.avatar.url(:thumb) %> <br />
+
+
+
 <%= form_for avatar_path, :html => {:multipart => true} do |f| %>
   <p>
     <label>My Avatar</label>

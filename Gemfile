@@ -21,9 +21,23 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 
+# admin
+gem 'rails_admin'
+gem 'will_paginate', '~> 3.0'
+gem 'cancan' 
+gem 'paper_trail', '~> 3.0.1'
+
+# message
+
+
 #  JavaScript runtime.
 gem 'therubyracer'
 
+#  tags
+gem 'acts-as-taggable-on'
+
+#   like
+gem 'acts_as_votable', '~> 0.8.0'
 
 # File upload
 gem "paperclip",  :git => "git://github.com/thoughtbot/paperclip.git"
@@ -58,5 +72,8 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
-gem 'logger'
+# gem 'debugger', 
+group :development do
+  gem 'logger'
+  gem 'capistrano', '~> 3.2.0'
+end 
