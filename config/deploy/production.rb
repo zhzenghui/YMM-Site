@@ -1,54 +1,62 @@
-
-set :application, "YYMM"
-set :deploy_to, "/data/www/#{application}"
-
-
-# Simple Role Syntax
-# ==================
-# Supports bulk-adding hosts to roles, the primary server in each group
-# is considered to be the first unless any hosts have the primary
-# property set.  Don't declare `role :all`, it's a meta role.
-
-role :app, %w{yuenvshen.com}
-role :web, %w{yuenvshen.com}
-role :db,  %w{yuenvshen.com}
+require "bundler/capistrano"
+load 'deploy/assets'
 
 
 
 
 
+# General
+set :application,         "YMM"
+set :domain,              "yuenvshen.com"
+set :user,                "deploy"
+set :runner,              "deploy"
+set :use_sudo,            false
+set :deploy_to,           "/data/www/#{application}"
+set :deploy_via, :copy
+set :repository_cache,    "#{application}_cache"
+set :environment,         "production"
 
-# Extended Server Syntax
-# ======================
-# This can be used to drop a more detailed server definition into the
-# server list. The second argument is a, or duck-types, Hash and is
-# used to set extended properties on the server.
-
-server 'yuenvshen.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+set :ssh_options, { :forward_agent => true, :port => 22 }
+set :keep_releases, 5
 
 
-# Custom SSH Options
-# ==================
-# You may pass any option but keep in mind that net/ssh understands a
-# limited set of options, consult[net/ssh documentation](http://net-ssh.github.io/net-ssh/classes/Net/SSH.html#method-c-start).
-#
-# Global options
-# --------------
-#  set :ssh_options, {
-#    keys: %w(/home/rlisowski/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
-#
-# And/or per server (overrides global)
-# ------------------------------------
-server 'yuenvshen.com/',
-  user: 'root',
-  roles: %w{yuenvshen},
-  ssh_options: {
-    user: 'root', # overrides user setting above
-    keys: %w(/home/zeng/.ssh/id_rsa),
-    forward_agent: false,
-    auth_methods: %w(publickey password)
-    password: 'please use keys'
-  }
+# Roles
+role :web,                domain
+role :app,                domain
+role :db,                 domain, :primary => true
+ 
+
+
+
+# GIT
+set :repository,          "https://github.com/zhzenghui/YMM-Site.git"
+set :branch,              "master"
+set :keep_releases,       3
+set :deploy_via,          :remote_cache
+set :scm,                 :git
+
+
+# SSH
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
+ssh_options[:paranoid] = true # comment out if it gives you trouble. newest net/ssh needs this set.
+ 
+######## Callbacks - No More Config ########
+after 'deploy:symlink', 'deploy:cleanup'            # makes sure there's only 3 deployments, deletes the extras
+ 
+
+
+ server domain, :app, :web, :db, :primary => true
+
+
+ 
+# Custom Tasks
+namespace :deploy do
+  task(:start) {}
+  task(:stop) {}
+ 
+  desc "Restart Application"
+  task :restart, :roles => :web, :except => { :no_release => true } do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end

@@ -1,3 +1,4 @@
+
 class Api::V1::PostController < ApplicationController
 
   skip_before_filter :verify_authenticity_token,
@@ -18,7 +19,7 @@ class Api::V1::PostController < ApplicationController
     render :status => :unprocessable_entity,
             :json => { :success => true,
                      :info => "",
-                     :data => @posts }
+                     :data => @posts}
 
   end
 
