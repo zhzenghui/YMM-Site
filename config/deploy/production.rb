@@ -1,62 +1,36 @@
-require "bundler/capistrano"
-load 'deploy/assets'
+
+
+set :application, "ymm"
+
+
+set :user, 'root'
+
+role :app, %w{root@115.28.188.236}
+role :web, %w{root@115.28.188.236}
+role :db,  %w{root@115.28.188.236}
+
+
+
+
+# rvm 
+set :rvm_ruby_version, 'ruby-2.1.0'
+set :rvm_type, :user                     # Defaults to: :auto
+set :rvm_custom_path, '/usr/local/rvm/'  # only needed if not detected
 
 
 
 
 
-# General
-set :application,         "YMM"
-set :domain,              "yuenvshen.com"
-set :user,                "deploy"
-set :runner,              "deploy"
-set :use_sudo,            false
-set :deploy_to,           "/data/www/#{application}"
-set :deploy_via, :copy
-set :repository_cache,    "#{application}_cache"
-set :environment,         "production"
+server 'root@115.28.188.236', roles: [:web, :app] 
 
-set :ssh_options, { :forward_agent => true, :port => 22 }
-set :keep_releases, 5
-
-
-# Roles
-role :web,                domain
-role :app,                domain
-role :db,                 domain, :primary => true
- 
+set :rails_env, :production
+set :deploy_to, '/home/www/#{application}'
 
 
 
-# GIT
-set :repository,          "https://github.com/zhzenghui/YMM-Site.git"
-set :branch,              "master"
-set :keep_releases,       3
-set :deploy_via,          :remote_cache
-set :scm,                 :git
+# unicorn.rb 路径
+set :unicorn_path, "#{deploy_to}/current/config/unicorn.rb"
 
 
-# SSH
-default_run_options[:pty] = true
-ssh_options[:forward_agent] = true
-ssh_options[:paranoid] = true # comment out if it gives you trouble. newest net/ssh needs this set.
- 
-######## Callbacks - No More Config ########
-after 'deploy:symlink', 'deploy:cleanup'            # makes sure there's only 3 deployments, deletes the extras
- 
 
 
- server domain, :app, :web, :db, :primary => true
-
-
- 
-# Custom Tasks
-namespace :deploy do
-  task(:start) {}
-  task(:stop) {}
- 
-  desc "Restart Application"
-  task :restart, :roles => :web, :except => { :no_release => true } do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-end
