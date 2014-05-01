@@ -76,13 +76,16 @@ end
 
 
 
-
+gem 'psych'
 # Use the Unicorn app server
 gem 'unicorn'
 
 group :development do
   gem 'logger'
-  gem 'capistrano', '~> 3.2.0'
 
-  gem 'sshkit', '~> 1.4.0'
+
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rvm'
 end 
