@@ -75,7 +75,6 @@ end
 # gem 'debugger', 
 
 gem 'psych'
-gem 'yaml'
 
 # Use the Unicorn app server
 gem 'unicorn'
