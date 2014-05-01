@@ -86,6 +86,5 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm', '~> 0.1.0'
   gem 'capistrano-bundler', '~> 1.1.2'
-  gem 'bundled-libyaml'
   gem 'sshkit', '~> 1.4.0'
 end 
