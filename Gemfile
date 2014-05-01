@@ -74,14 +74,8 @@ end
 # Use debugger
 # gem 'debugger', 
 
-# rails specific capistrano funcitons
-gem 'capistrano-rails', '~> 1.1.0'
 
-# integrate bundler with capistrano
-gem 'capistrano-bundler'
 
-# if you are using RBENV
-gem 'capistrano-rbenv', "~> 2.0" 
 
 # Use the Unicorn app server
 gem 'unicorn'
@@ -89,4 +83,6 @@ gem 'unicorn'
 group :development do
   gem 'logger'
   gem 'capistrano', '~> 3.2.0'
+
+  gem 'sshkit', '~> 1.4.0'
 end 
