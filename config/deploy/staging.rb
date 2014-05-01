@@ -19,7 +19,7 @@ role :db,  %w{root@115.28.188.236}
 
 
 # rvm 
-set :rvm_ruby_version, 'ruby-2.0.0-p451'
+set :rvm_ruby_version, 'ruby-2.1.0'
 set :rvm_type, :user                     # Defaults to: :auto
 set :rvm_custom_path, '/usr/local/rvm/'  # only needed if not detected
 
@@ -32,6 +32,6 @@ server 'root@115.28.188.236', roles: [:web, :app]
 set :deploy_to, '/home/www/'
 
 
-set :rails_env, :developer
+set :rails_env, :production
 
 
