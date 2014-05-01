@@ -77,6 +77,9 @@ end
 
 
 gem 'psych'
+gem 'libyaml'
+
+
 # Use the Unicorn app server
 gem 'unicorn'
 
