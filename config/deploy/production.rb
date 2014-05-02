@@ -27,11 +27,6 @@ set :rails_env, :production
 set :deploy_to, "/home/www/#{fetch(:application)}"
 
 
-set :unicorn_workers, 4
-set :unicorn_pid, shared_path.join("tmp/pids/unicorn.pid")
-set :unicorn_config, shared_path.join("config/unicorn.rb")
-set :unicorn_workers, 2
-
 
 
 
