@@ -24,7 +24,7 @@ set :rvm_custom_path, '/usr/local/rvm/'  # only needed if not detected
 server 'root@115.28.188.236', roles: [:web, :app] 
 
 set :rails_env, :production
-set :deploy_to, '/home/www/#{application}'
+set :deploy_to, "/home/www/#{fetch(:application)}"
 
 
 

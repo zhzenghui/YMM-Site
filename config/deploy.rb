@@ -35,6 +35,13 @@ set :repo_url, 'https://github.com/zhzenghui/YMM-Site.git'
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+
+set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+
+
+
+
 namespace :deploy do
 
   desc 'Restart application'

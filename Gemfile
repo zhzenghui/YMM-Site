@@ -79,6 +79,10 @@ gem 'psych'
 # Use the Unicorn app server
 gem 'unicorn'
 
+group :production do
+  gem 'pg', '0.17.1'
+end 
+
 group :development do
   gem 'logger'
 
