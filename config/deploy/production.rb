@@ -28,5 +28,9 @@ set :deploy_to, "/home/www/#{fetch(:application)}"
 
 
 
+# unicorn.rb 路径
+set :unicorn_path, "#{deploy_to}/current/config/unicorn.rb"
+
+
 
 
