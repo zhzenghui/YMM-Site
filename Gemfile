@@ -90,4 +90,6 @@ group :development do
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm', '~> 0.1.0'
   gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-unicorn-nginx', '~> 2.0'
+
 end 

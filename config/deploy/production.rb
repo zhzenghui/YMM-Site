@@ -28,8 +28,12 @@ set :deploy_to, "/home/www/#{fetch(:application)}"
 
 
 
-# unicorn.rb 路径
-set :unicorn_path, "#{deploy_to}/current/config/unicorn.rb"
+set :nginx_server_name, '115.28.188.236'
+
+set :unicorn_workers, 4
+set :unicorn_pid, shared_path.join("tmp/pids/unicorn.pid")
+set :unicorn_config, shared_path.join("config/unicorn.rb")
+set :unicorn_workers, 2
 
 
 
