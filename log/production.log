@@ -1,0 +1,1607 @@
+I, [2014-05-02T23:49:08.595243 #32546]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-05-02 23:49:08 +0800
+I, [2014-05-02T23:49:08.614059 #32546]  INFO -- : Processing by HomeController#index as HTML
+E, [2014-05-02T23:49:08.623648 #32546] ERROR -- : SQLite3::SQLException: no such table: users: SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+I, [2014-05-02T23:49:08.623865 #32546]  INFO -- : Completed 500 Internal Server Error in 10ms
+F, [2014-05-02T23:49:08.626575 #32546] FATAL -- : 
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: users: SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1):
+  sqlite3 (1.3.9) lib/sqlite3/database.rb:91:in `initialize'
+  sqlite3 (1.3.9) lib/sqlite3/database.rb:91:in `new'
+  sqlite3 (1.3.9) lib/sqlite3/database.rb:91:in `prepare'
+  activerecord (4.1.0) lib/active_record/connection_adapters/sqlite3_adapter.rb:301:in `block in exec_query'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:373:in `block in log'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:367:in `log'
+  activerecord (4.1.0) lib/active_record/connection_adapters/sqlite3_adapter.rb:298:in `exec_query'
+  activerecord (4.1.0) lib/active_record/connection_adapters/sqlite3_adapter.rb:507:in `select'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/database_statements.rb:31:in `select_all'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/query_cache.rb:67:in `block in select_all'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/query_cache.rb:82:in `cache_sql'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/query_cache.rb:67:in `select_all'
+  activerecord (4.1.0) lib/active_record/querying.rb:39:in `find_by_sql'
+  activerecord (4.1.0) lib/active_record/relation.rb:603:in `exec_queries'
+  activerecord (4.1.0) lib/active_record/relation.rb:487:in `load'
+  activerecord (4.1.0) lib/active_record/relation.rb:231:in `to_a'
+  activerecord (4.1.0) lib/active_record/relation/finder_methods.rb:465:in `find_nth_with_limit'
+  activerecord (4.1.0) lib/active_record/relation/finder_methods.rb:459:in `find_nth'
+  activerecord (4.1.0) lib/active_record/relation/finder_methods.rb:132:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/active_record.rb:17:in `get'
+  devise (3.2.2) lib/devise/models/authenticatable.rb:208:in `serialize_from_session'
+  devise (3.2.2) lib/devise.rb:462:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:104:in `authenticate'
+  devise (3.2.2) lib/devise/controllers/helpers.rb:58:in `current_user'
+  paper_trail (3.0.1) lib/paper_trail/frameworks/rails.rb:20:in `user_for_paper_trail'
+  paper_trail (3.0.1) lib/paper_trail/frameworks/rails.rb:62:in `set_paper_trail_whodunnit'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:160:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack-pjax (0.7.0) lib/rack/pjax.rb:12:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  remotipart (1.2.1) lib/remotipart/middleware.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:49:22.253588 #32546]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-05-02 23:49:22 +0800
+I, [2014-05-02T23:49:22.254385 #32546]  INFO -- : Processing by HomeController#index as HTML
+E, [2014-05-02T23:49:22.263671 #32546] ERROR -- : SQLite3::SQLException: no such table: users: SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1
+I, [2014-05-02T23:49:22.263807 #32546]  INFO -- : Completed 500 Internal Server Error in 9ms
+F, [2014-05-02T23:49:22.266402 #32546] FATAL -- : 
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: users: SELECT  "users".* FROM "users"  WHERE "users"."id" = 1  ORDER BY "users"."id" ASC LIMIT 1):
+  sqlite3 (1.3.9) lib/sqlite3/database.rb:91:in `initialize'
+  sqlite3 (1.3.9) lib/sqlite3/database.rb:91:in `new'
+  sqlite3 (1.3.9) lib/sqlite3/database.rb:91:in `prepare'
+  activerecord (4.1.0) lib/active_record/connection_adapters/sqlite3_adapter.rb:301:in `block in exec_query'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:373:in `block in log'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:367:in `log'
+  activerecord (4.1.0) lib/active_record/connection_adapters/sqlite3_adapter.rb:298:in `exec_query'
+  activerecord (4.1.0) lib/active_record/connection_adapters/sqlite3_adapter.rb:507:in `select'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/database_statements.rb:31:in `select_all'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/query_cache.rb:67:in `block in select_all'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/query_cache.rb:82:in `cache_sql'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/query_cache.rb:67:in `select_all'
+  activerecord (4.1.0) lib/active_record/querying.rb:39:in `find_by_sql'
+  activerecord (4.1.0) lib/active_record/relation.rb:603:in `exec_queries'
+  activerecord (4.1.0) lib/active_record/relation.rb:487:in `load'
+  activerecord (4.1.0) lib/active_record/relation.rb:231:in `to_a'
+  activerecord (4.1.0) lib/active_record/relation/finder_methods.rb:465:in `find_nth_with_limit'
+  activerecord (4.1.0) lib/active_record/relation/finder_methods.rb:459:in `find_nth'
+  activerecord (4.1.0) lib/active_record/relation/finder_methods.rb:132:in `first'
+  orm_adapter (0.5.0) lib/orm_adapter/adapters/active_record.rb:17:in `get'
+  devise (3.2.2) lib/devise/models/authenticatable.rb:208:in `serialize_from_session'
+  devise (3.2.2) lib/devise.rb:462:in `block (2 levels) in configure_warden!'
+  warden (1.2.3) lib/warden/session_serializer.rb:34:in `fetch'
+  warden (1.2.3) lib/warden/proxy.rb:212:in `user'
+  warden (1.2.3) lib/warden/proxy.rb:318:in `_perform_authentication'
+  warden (1.2.3) lib/warden/proxy.rb:104:in `authenticate'
+  devise (3.2.2) lib/devise/controllers/helpers.rb:58:in `current_user'
+  paper_trail (3.0.1) lib/paper_trail/frameworks/rails.rb:20:in `user_for_paper_trail'
+  paper_trail (3.0.1) lib/paper_trail/frameworks/rails.rb:62:in `set_paper_trail_whodunnit'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:424:in `block in make_lambda'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:160:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:160:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:166:in `block in halting'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:86:in `run_callbacks'
+  actionpack (4.1.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.1.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.1.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.1.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.1.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.1.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.1.0) lib/abstract_controller/base.rb:136:in `process'
+  actionview (4.1.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.1.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.1.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.1.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.1.0) lib/action_dispatch/routing/route_set.rb:676:in `call'
+  rack-pjax (0.7.0) lib/rack/pjax.rb:12:in `call'
+  warden (1.2.3) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.3) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.3) lib/warden/manager.rb:34:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  remotipart (1.2.1) lib/remotipart/middleware.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/flash.rb:254:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.1.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:621:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.0) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:51:49.210008 #32839]  INFO -- : Migrating to DeviseCreateUsers (20140314075005)
+I, [2014-05-02T23:51:49.224988 #32839]  INFO -- : Migrating to AddUserInfo (20140330071632)
+I, [2014-05-02T23:51:49.231901 #32839]  INFO -- : Migrating to AddAvatarToUsers (20140402155508)
+I, [2014-05-02T23:51:49.234372 #32839]  INFO -- : Migrating to CreatePosts (20140403162501)
+I, [2014-05-02T23:51:49.238247 #32839]  INFO -- : Migrating to CreateComments (20140403163131)
+I, [2014-05-02T23:51:49.241511 #32839]  INFO -- : Migrating to CreateImages (20140405075938)
+I, [2014-05-02T23:51:49.244270 #32839]  INFO -- : Migrating to AddAttachmentAvatarToPosts (20140405083225)
+I, [2014-05-02T23:51:49.247792 #32839]  INFO -- : Migrating to AddAttachmentAvatarToUsers (20140412143744)
+I, [2014-05-02T23:51:49.251386 #32839]  INFO -- : Migrating to ActsAsTaggableOnMigration (20140412153142)
+I, [2014-05-02T23:51:49.257421 #32839]  INFO -- : Migrating to AddMissingUniqueIndices (20140412153143)
+I, [2014-05-02T23:51:49.262763 #32839]  INFO -- : Migrating to AddTaggingsCounterCacheToTags (20140412153144)
+I, [2014-05-02T23:51:49.267870 #32839]  INFO -- : Migrating to ActsAsVotableMigration (20140412161009)
+I, [2014-05-02T23:51:49.273877 #32839]  INFO -- : Migrating to CreateVersions (20140414171135)
+I, [2014-05-02T23:51:49.279934 #32839]  INFO -- : Migrating to CreateAblums (20140417154936)
+I, [2014-05-02T23:51:49.283640 #32839]  INFO -- : Migrating to AddConverColumnToAblums (20140417155735)
+I, [2014-05-02T23:51:49.287318 #32839]  INFO -- : Migrating to CreatePhotos (20140417161720)
+I, [2014-05-02T23:51:49.290317 #32839]  INFO -- : Migrating to AddPhotoColumToPhotos (20140417161802)
+I, [2014-05-02T23:52:55.411611 #33045]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-05-02 23:52:55 +0800
+I, [2014-05-02T23:52:55.429745 #33045]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-05-02T23:52:55.443894 #33045]  INFO -- : 
+I, [2014-05-02T23:52:55.444015 #33045]  INFO -- : &&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&
+I, [2014-05-02T23:52:55.444066 #33045]  INFO -- : &&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&
+I, [2014-05-02T23:52:55.448153 #33045]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.9ms)
+I, [2014-05-02T23:53:00.916833 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.6ms)
+I, [2014-05-02T23:53:00.943743 #33045]  INFO -- :   Rendered layouts/_header.html.erb (26.0ms)
+I, [2014-05-02T23:53:00.945654 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.7ms)
+I, [2014-05-02T23:53:00.946024 #33045]  INFO -- : Completed 200 OK in 5516ms (Views: 5501.6ms | ActiveRecord: 0.8ms)
+I, [2014-05-02T23:53:01.147854 #33045]  INFO -- : Started GET "/assets/application-a5f035d5c41ef0f6c3d82bd82518b5d3.css" for 127.0.0.1 at 2014-05-02 23:53:01 +0800
+I, [2014-05-02T23:53:01.162350 #33045]  INFO -- : Started GET "/assets/application-6d87aa9920417e8e96cf132888642f60.js" for 127.0.0.1 at 2014-05-02 23:53:01 +0800
+I, [2014-05-02T23:53:01.173810 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:01 +0800
+F, [2014-05-02T23:53:01.175390 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:08.157211 #33045]  INFO -- : Started GET "/photos" for 127.0.0.1 at 2014-05-02 23:53:08 +0800
+I, [2014-05-02T23:53:08.159437 #33045]  INFO -- : Processing by PhotosController#index as HTML
+I, [2014-05-02T23:53:08.176375 #33045]  INFO -- :   Rendered photos/index.html.erb within layouts/application (2.4ms)
+I, [2014-05-02T23:53:08.179609 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.5ms)
+I, [2014-05-02T23:53:08.191252 #33045]  INFO -- :   Rendered layouts/_header.html.erb (10.7ms)
+I, [2014-05-02T23:53:08.192945 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.6ms)
+I, [2014-05-02T23:53:08.193303 #33045]  INFO -- : Completed 200 OK in 34ms (Views: 31.3ms | ActiveRecord: 0.3ms)
+I, [2014-05-02T23:53:08.217636 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:08 +0800
+F, [2014-05-02T23:53:08.218916 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:09.977728 #33045]  INFO -- : Started GET "/photos/new" for 127.0.0.1 at 2014-05-02 23:53:09 +0800
+I, [2014-05-02T23:53:09.979761 #33045]  INFO -- : Processing by PhotosController#new as HTML
+I, [2014-05-02T23:53:10.044976 #33045]  INFO -- :   Rendered photos/_form.html.erb (51.5ms)
+I, [2014-05-02T23:53:10.045227 #33045]  INFO -- :   Rendered photos/new.html.erb within layouts/application (55.4ms)
+I, [2014-05-02T23:53:10.046051 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:53:10.056115 #33045]  INFO -- :   Rendered layouts/_header.html.erb (9.9ms)
+I, [2014-05-02T23:53:10.056477 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:53:10.056812 #33045]  INFO -- : Completed 200 OK in 77ms (Views: 73.2ms | ActiveRecord: 0.6ms)
+I, [2014-05-02T23:53:10.079088 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:10 +0800
+F, [2014-05-02T23:53:10.080736 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:21.416840 #33045]  INFO -- : Started POST "/photos" for 127.0.0.1 at 2014-05-02 23:53:21 +0800
+I, [2014-05-02T23:53:21.418844 #33045]  INFO -- : Processing by PhotosController#create as HTML
+I, [2014-05-02T23:53:21.419014 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "photo"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fe5cf12ac20 @tempfile=#<Tempfile:/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/RackMultipart20140502-33045-v035h>, @original_filename="logo.gif", @content_type="image/gif", @headers="Content-Disposition: form-data; name=\"photo[avatar]\"; filename=\"logo.gif\"\r\nContent-Type: image/gif\r\n">, "buyShow"=>"1", "is_conver"=>"1", "ablum_id"=>"1", "status"=>"1"}, "commit"=>"Create Photo"}
+I, [2014-05-02T23:53:21.425056 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-137ujj5.gif'
+I, [2014-05-02T23:53:21.438152 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn.gif[0]' 2>/dev/null
+I, [2014-05-02T23:53:21.500658 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn.gif[0]'
+I, [2014-05-02T23:53:21.515151 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn.gif' -coalesce -auto-orient -resize "300x300>" -layers "optimize" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn20140502-33045-zlip65'
+I, [2014-05-02T23:53:21.635920 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn20140502-33045-zlip65'
+I, [2014-05-02T23:53:21.646129 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn.gif[0]' 2>/dev/null
+I, [2014-05-02T23:53:21.666699 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn.gif[0]'
+I, [2014-05-02T23:53:21.680492 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn.gif' -coalesce -auto-orient -resize "100x100>" -layers "optimize" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn20140502-33045-qo2k9g'
+I, [2014-05-02T23:53:21.741884 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-tafrzn20140502-33045-qo2k9g'
+I, [2014-05-02T23:53:21.753060 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-66aw7s.gif'
+E, [2014-05-02T23:53:21.763808 #33045] ERROR -- : Binary data inserted for `string` type on column `avatar_content_type`
+I, [2014-05-02T23:53:21.774303 #33045]  INFO -- : Redirected to http://0.0.0.0:3000/photos/1
+I, [2014-05-02T23:53:21.774583 #33045]  INFO -- : Completed 302 Found in 355ms (ActiveRecord: 1.5ms)
+I, [2014-05-02T23:53:21.793005 #33045]  INFO -- : Started GET "/photos/1" for 127.0.0.1 at 2014-05-02 23:53:21 +0800
+I, [2014-05-02T23:53:21.794867 #33045]  INFO -- : Processing by PhotosController#show as HTML
+I, [2014-05-02T23:53:21.794940 #33045]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-05-02T23:53:21.807587 #33045]  INFO -- :   Rendered photos/show.html.erb within layouts/application (9.0ms)
+I, [2014-05-02T23:53:21.808713 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:53:21.819279 #33045]  INFO -- :   Rendered layouts/_header.html.erb (10.4ms)
+I, [2014-05-02T23:53:21.819644 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:53:21.819962 #33045]  INFO -- : Completed 200 OK in 25ms (Views: 22.3ms | ActiveRecord: 0.7ms)
+I, [2014-05-02T23:53:22.075332 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:22 +0800
+F, [2014-05-02T23:53:22.076490 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:24.051775 #33045]  INFO -- : Started GET "/photos" for 127.0.0.1 at 2014-05-02 23:53:24 +0800
+I, [2014-05-02T23:53:24.052872 #33045]  INFO -- : Processing by PhotosController#index as HTML
+I, [2014-05-02T23:53:24.067133 #33045]  INFO -- :   Rendered photos/index.html.erb within layouts/application (12.3ms)
+I, [2014-05-02T23:53:24.070279 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:53:24.081986 #33045]  INFO -- :   Rendered layouts/_header.html.erb (11.5ms)
+I, [2014-05-02T23:53:24.082364 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:53:24.082703 #33045]  INFO -- : Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.5ms)
+I, [2014-05-02T23:53:24.111315 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:24 +0800
+F, [2014-05-02T23:53:24.112436 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:24.122299 #33045]  INFO -- : Started GET "/system/photos/avatars/000/000/001/original/logo.gif?1399046001" for 127.0.0.1 at 2014-05-02 23:53:24 +0800
+F, [2014-05-02T23:53:24.123446 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/photos/avatars/000/000/001/original/logo.gif"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:30.258191 #33045]  INFO -- : Started GET "/photos/1/edit" for 127.0.0.1 at 2014-05-02 23:53:30 +0800
+I, [2014-05-02T23:53:30.259698 #33045]  INFO -- : Processing by PhotosController#edit as HTML
+I, [2014-05-02T23:53:30.259791 #33045]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-05-02T23:53:30.283834 #33045]  INFO -- :   Rendered photos/_form.html.erb (4.2ms)
+I, [2014-05-02T23:53:30.284246 #33045]  INFO -- :   Rendered photos/edit.html.erb within layouts/application (5.7ms)
+I, [2014-05-02T23:53:30.285076 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:53:30.346523 #33045]  INFO -- :   Rendered layouts/_header.html.erb (61.3ms)
+I, [2014-05-02T23:53:30.347174 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:53:30.347666 #33045]  INFO -- : Completed 200 OK in 88ms (Views: 75.1ms | ActiveRecord: 0.2ms)
+I, [2014-05-02T23:53:30.369659 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:30 +0800
+F, [2014-05-02T23:53:30.370731 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:34.518253 #33045]  INFO -- : Started PATCH "/photos/1" for 127.0.0.1 at 2014-05-02 23:53:34 +0800
+I, [2014-05-02T23:53:34.519393 #33045]  INFO -- : Processing by PhotosController#update as HTML
+I, [2014-05-02T23:53:34.519479 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "photo"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fe5cdfa9de8 @tempfile=#<Tempfile:/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/RackMultipart20140502-33045-1xhuuib>, @original_filename="weini.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"photo[avatar]\"; filename=\"weini.png\"\r\nContent-Type: image/png\r\n">, "buyShow"=>"1", "is_conver"=>"1", "ablum_id"=>"1", "status"=>"1"}, "commit"=>"Update Photo", "id"=>"1"}
+I, [2014-05-02T23:53:34.530733 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-uharpb.png'
+I, [2014-05-02T23:53:34.540183 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca.png[0]' 2>/dev/null
+I, [2014-05-02T23:53:34.586332 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca.png[0]'
+I, [2014-05-02T23:53:34.600226 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca.png[0]' -auto-orient -resize "300x300>" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca20140502-33045-1gntmls'
+I, [2014-05-02T23:53:34.699640 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca20140502-33045-1gntmls'
+I, [2014-05-02T23:53:34.709215 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca.png[0]' 2>/dev/null
+I, [2014-05-02T23:53:34.751023 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca.png[0]'
+I, [2014-05-02T23:53:34.765250 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca.png[0]' -auto-orient -resize "100x100>" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca20140502-33045-mt83sn'
+I, [2014-05-02T23:53:34.840066 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-198nuca20140502-33045-mt83sn'
+I, [2014-05-02T23:53:34.850099 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1v6wbi0.png'
+E, [2014-05-02T23:53:34.858581 #33045] ERROR -- : Binary data inserted for `string` type on column `avatar_content_type`
+I, [2014-05-02T23:53:34.859549 #33045]  INFO -- : [paperclip] deleting /Users/zenghui/Documents/github/Yue-Site/public/system/photos/avatars/000/000/001/original/logo.gif
+I, [2014-05-02T23:53:34.859811 #33045]  INFO -- : [paperclip] deleting /Users/zenghui/Documents/github/Yue-Site/public/system/photos/avatars/000/000/001/medium/logo.gif
+I, [2014-05-02T23:53:34.859961 #33045]  INFO -- : [paperclip] deleting /Users/zenghui/Documents/github/Yue-Site/public/system/photos/avatars/000/000/001/thumb/logo.gif
+I, [2014-05-02T23:53:34.869332 #33045]  INFO -- : Redirected to http://0.0.0.0:3000/photos/1
+I, [2014-05-02T23:53:34.869602 #33045]  INFO -- : Completed 302 Found in 350ms (ActiveRecord: 1.4ms)
+I, [2014-05-02T23:53:34.886187 #33045]  INFO -- : Started GET "/photos/1" for 127.0.0.1 at 2014-05-02 23:53:34 +0800
+I, [2014-05-02T23:53:34.887575 #33045]  INFO -- : Processing by PhotosController#show as HTML
+I, [2014-05-02T23:53:34.887629 #33045]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-05-02T23:53:34.891187 #33045]  INFO -- :   Rendered photos/show.html.erb within layouts/application (1.1ms)
+I, [2014-05-02T23:53:34.892115 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:53:34.902312 #33045]  INFO -- :   Rendered layouts/_header.html.erb (10.1ms)
+I, [2014-05-02T23:53:34.902698 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:53:34.902983 #33045]  INFO -- : Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.2ms)
+I, [2014-05-02T23:53:35.114791 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:35 +0800
+F, [2014-05-02T23:53:35.116536 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:37.113974 #33045]  INFO -- : Started GET "/photos" for 127.0.0.1 at 2014-05-02 23:53:37 +0800
+I, [2014-05-02T23:53:37.115159 #33045]  INFO -- : Processing by PhotosController#index as HTML
+I, [2014-05-02T23:53:37.122356 #33045]  INFO -- :   Rendered photos/index.html.erb within layouts/application (5.1ms)
+I, [2014-05-02T23:53:37.123640 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:53:37.142539 #33045]  INFO -- :   Rendered layouts/_header.html.erb (18.7ms)
+I, [2014-05-02T23:53:37.143216 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.3ms)
+I, [2014-05-02T23:53:37.143744 #33045]  INFO -- : Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.4ms)
+I, [2014-05-02T23:53:37.174266 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:37 +0800
+F, [2014-05-02T23:53:37.176057 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:37.187318 #33045]  INFO -- : Started GET "/system/photos/avatars/000/000/001/original/weini.png?1399046014" for 127.0.0.1 at 2014-05-02 23:53:37 +0800
+F, [2014-05-02T23:53:37.189387 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/photos/avatars/000/000/001/original/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:38.842824 #33045]  INFO -- : Started GET "/ablums" for 127.0.0.1 at 2014-05-02 23:53:38 +0800
+I, [2014-05-02T23:53:38.846369 #33045]  INFO -- : Processing by AblumsController#index as HTML
+I, [2014-05-02T23:53:38.860624 #33045]  INFO -- :   Rendered ablums/index.html.erb within layouts/application (1.9ms)
+I, [2014-05-02T23:53:38.862055 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:53:38.873065 #33045]  INFO -- :   Rendered layouts/_header.html.erb (10.8ms)
+I, [2014-05-02T23:53:38.873492 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:53:38.873847 #33045]  INFO -- : Completed 200 OK in 27ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+I, [2014-05-02T23:53:38.894227 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:38 +0800
+F, [2014-05-02T23:53:38.895271 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:40.249938 #33045]  INFO -- : Started GET "/ablums/new" for 127.0.0.1 at 2014-05-02 23:53:40 +0800
+I, [2014-05-02T23:53:40.251911 #33045]  INFO -- : Processing by AblumsController#new as HTML
+I, [2014-05-02T23:53:40.283418 #33045]  INFO -- :   Rendered ablums/_form.html.erb (16.5ms)
+I, [2014-05-02T23:53:40.283689 #33045]  INFO -- :   Rendered ablums/new.html.erb within layouts/application (20.4ms)
+I, [2014-05-02T23:53:40.284587 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:53:40.343497 #33045]  INFO -- :   Rendered layouts/_header.html.erb (58.7ms)
+I, [2014-05-02T23:53:40.343967 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:53:40.344306 #33045]  INFO -- : Completed 200 OK in 92ms (Views: 90.2ms | ActiveRecord: 0.0ms)
+I, [2014-05-02T23:53:40.367634 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:53:40 +0800
+F, [2014-05-02T23:53:40.368654 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:53:55.204963 #33045]  INFO -- : Started POST "/ablums" for 127.0.0.1 at 2014-05-02 23:53:55 +0800
+I, [2014-05-02T23:53:55.207494 #33045]  INFO -- : Processing by AblumsController#create as HTML
+I, [2014-05-02T23:53:55.207666 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "ablum"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fe5cdfab7b0 @tempfile=#<Tempfile:/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/RackMultipart20140502-33045-xvia3l>, @original_filename="weini.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"ablum[avatar]\"; filename=\"weini.png\"\r\nContent-Type: image/png\r\n">, "title"=>"qweqwe", "text"=>"qweqwe", "publish"=>"1", "free"=>"1", "user_id"=>"1", "url"=>"asdfasfd"}, "commit"=>"Create Ablum"}
+I, [2014-05-02T23:53:55.216460 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1jrmnfr.png'
+I, [2014-05-02T23:53:55.225972 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt3.png[0]' 2>/dev/null
+I, [2014-05-02T23:53:55.269160 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt3.png[0]'
+I, [2014-05-02T23:53:55.283408 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt3.png[0]' -auto-orient -resize "300x300>" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt320140502-33045-1jyl9tv'
+I, [2014-05-02T23:53:55.384640 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt320140502-33045-1jyl9tv'
+I, [2014-05-02T23:53:55.392876 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt3.png[0]' 2>/dev/null
+I, [2014-05-02T23:53:55.440343 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt3.png[0]'
+I, [2014-05-02T23:53:55.454476 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt3.png[0]' -auto-orient -resize "100x100>" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt320140502-33045-1wrdo32'
+I, [2014-05-02T23:53:55.536512 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-ppbqt320140502-33045-1wrdo32'
+I, [2014-05-02T23:53:55.548573 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-hj63aj.png'
+E, [2014-05-02T23:53:55.557511 #33045] ERROR -- : Binary data inserted for `string` type on column `avatar_content_type`
+I, [2014-05-02T23:53:55.571159 #33045]  INFO -- : Redirected to http://0.0.0.0:3000/ablums/1
+I, [2014-05-02T23:53:55.571394 #33045]  INFO -- : Completed 302 Found in 364ms (ActiveRecord: 1.4ms)
+I, [2014-05-02T23:53:55.591033 #33045]  INFO -- : Started GET "/ablums/1" for 127.0.0.1 at 2014-05-02 23:53:55 +0800
+I, [2014-05-02T23:53:55.592480 #33045]  INFO -- : Processing by AblumsController#show as HTML
+I, [2014-05-02T23:53:55.592540 #33045]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-05-02T23:53:55.602038 #33045]  INFO -- :   Rendered ablums/show.html.erb within layouts/application (5.9ms)
+I, [2014-05-02T23:53:55.602243 #33045]  INFO -- : Completed 500 Internal Server Error in 10ms
+F, [2014-05-02T23:53:55.604141 #33045] FATAL -- : 
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    27: 
+    28: <p>
+    29:   <strong>User:</strong>
+    30:   <%= @ablum.user.email %>
+    31: </p>
+    32: 
+    33: <p>
+  app/views/ablums/show.html.erb:30:in `_app_views_ablums_show_html_erb__2495971963549333289_70312500432100'
+
+
+I, [2014-05-02T23:54:18.676125 #33045]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-05-02 23:54:18 +0800
+I, [2014-05-02T23:54:18.677147 #33045]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-05-02T23:54:18.678308 #33045]  INFO -- : 
+I, [2014-05-02T23:54:18.678372 #33045]  INFO -- : &&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&
+I, [2014-05-02T23:54:18.678419 #33045]  INFO -- : &&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&
+I, [2014-05-02T23:54:18.679800 #33045]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.6ms)
+I, [2014-05-02T23:54:18.681515 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:54:18.692578 #33045]  INFO -- :   Rendered layouts/_header.html.erb (10.9ms)
+I, [2014-05-02T23:54:18.693003 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:54:18.693284 #33045]  INFO -- : Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+I, [2014-05-02T23:54:18.933578 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:18 +0800
+F, [2014-05-02T23:54:18.935461 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:20.491088 #33045]  INFO -- : Started GET "/ablums" for 127.0.0.1 at 2014-05-02 23:54:20 +0800
+I, [2014-05-02T23:54:20.544696 #33045]  INFO -- : Processing by AblumsController#index as HTML
+I, [2014-05-02T23:54:20.549231 #33045]  INFO -- :   Rendered ablums/index.html.erb within layouts/application (3.0ms)
+I, [2014-05-02T23:54:20.550275 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:54:20.562327 #33045]  INFO -- :   Rendered layouts/_header.html.erb (11.9ms)
+I, [2014-05-02T23:54:20.562765 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:54:20.563129 #33045]  INFO -- : Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.3ms)
+I, [2014-05-02T23:54:20.588583 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:20 +0800
+F, [2014-05-02T23:54:20.590409 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:20.601295 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/001/original/weini.png?1399046035" for 127.0.0.1 at 2014-05-02 23:54:20 +0800
+F, [2014-05-02T23:54:20.602400 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/001/original/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:22.810873 #33045]  INFO -- : Started GET "/ablums/new" for 127.0.0.1 at 2014-05-02 23:54:22 +0800
+I, [2014-05-02T23:54:22.811888 #33045]  INFO -- : Processing by AblumsController#new as HTML
+I, [2014-05-02T23:54:22.818028 #33045]  INFO -- :   Rendered ablums/_form.html.erb (3.9ms)
+I, [2014-05-02T23:54:22.818232 #33045]  INFO -- :   Rendered ablums/new.html.erb within layouts/application (4.3ms)
+I, [2014-05-02T23:54:22.819160 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:54:22.843161 #33045]  INFO -- :   Rendered layouts/_header.html.erb (23.8ms)
+I, [2014-05-02T23:54:22.843755 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.3ms)
+I, [2014-05-02T23:54:22.844185 #33045]  INFO -- : Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.0ms)
+I, [2014-05-02T23:54:22.867708 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:22 +0800
+F, [2014-05-02T23:54:22.868674 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:36.121425 #33045]  INFO -- : Started POST "/ablums" for 127.0.0.1 at 2014-05-02 23:54:36 +0800
+I, [2014-05-02T23:54:36.122849 #33045]  INFO -- : Processing by AblumsController#create as HTML
+I, [2014-05-02T23:54:36.123075 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "ablum"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fe5cf43b388 @tempfile=#<Tempfile:/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/RackMultipart20140502-33045-eb71n4>, @original_filename="weini.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"ablum[avatar]\"; filename=\"weini.png\"\r\nContent-Type: image/png\r\n">, "title"=>"asdfsfdadsffds", "text"=>"adsfdsafdfsaadfs", "publish"=>"1", "free"=>"1", "user_id"=>"1", "url"=>"1"}, "commit"=>"Create Ablum"}
+I, [2014-05-02T23:54:36.128074 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1h028yq.png'
+I, [2014-05-02T23:54:36.137333 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk.png[0]' 2>/dev/null
+I, [2014-05-02T23:54:36.179729 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk.png[0]'
+I, [2014-05-02T23:54:36.193823 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk.png[0]' -auto-orient -resize "300x300>" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk20140502-33045-13hhxnl'
+I, [2014-05-02T23:54:36.286268 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk20140502-33045-13hhxnl'
+I, [2014-05-02T23:54:36.294610 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk.png[0]' 2>/dev/null
+I, [2014-05-02T23:54:36.337801 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk.png[0]'
+I, [2014-05-02T23:54:36.352007 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk.png[0]' -auto-orient -resize "100x100>" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk20140502-33045-46saao'
+I, [2014-05-02T23:54:36.429791 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1omv2vk20140502-33045-46saao'
+I, [2014-05-02T23:54:36.440509 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-k7auk8.png'
+E, [2014-05-02T23:54:36.447862 #33045] ERROR -- : Binary data inserted for `string` type on column `avatar_content_type`
+I, [2014-05-02T23:54:36.458725 #33045]  INFO -- : Redirected to http://0.0.0.0:3000/ablums/2
+I, [2014-05-02T23:54:36.458970 #33045]  INFO -- : Completed 302 Found in 336ms (ActiveRecord: 1.1ms)
+I, [2014-05-02T23:54:36.476486 #33045]  INFO -- : Started GET "/ablums/2" for 127.0.0.1 at 2014-05-02 23:54:36 +0800
+I, [2014-05-02T23:54:36.477901 #33045]  INFO -- : Processing by AblumsController#show as HTML
+I, [2014-05-02T23:54:36.477965 #33045]  INFO -- :   Parameters: {"id"=>"2"}
+I, [2014-05-02T23:54:36.483240 #33045]  INFO -- :   Rendered ablums/show.html.erb within layouts/application (2.9ms)
+I, [2014-05-02T23:54:36.483417 #33045]  INFO -- : Completed 500 Internal Server Error in 5ms
+F, [2014-05-02T23:54:36.485326 #33045] FATAL -- : 
+ActionView::Template::Error (undefined method `email' for nil:NilClass):
+    27: 
+    28: <p>
+    29:   <strong>User:</strong>
+    30:   <%= @ablum.user.email %>
+    31: </p>
+    32: 
+    33: <p>
+  app/views/ablums/show.html.erb:30:in `_app_views_ablums_show_html_erb__2495971963549333289_70312500432100'
+
+
+I, [2014-05-02T23:54:40.467915 #33045]  INFO -- : Started GET "/ablums/" for 127.0.0.1 at 2014-05-02 23:54:40 +0800
+I, [2014-05-02T23:54:40.468886 #33045]  INFO -- : Processing by AblumsController#index as HTML
+I, [2014-05-02T23:54:40.476578 #33045]  INFO -- :   Rendered ablums/index.html.erb within layouts/application (5.8ms)
+I, [2014-05-02T23:54:40.477641 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:54:40.490932 #33045]  INFO -- :   Rendered layouts/_header.html.erb (13.1ms)
+I, [2014-05-02T23:54:40.491423 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:54:40.491801 #33045]  INFO -- : Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.3ms)
+I, [2014-05-02T23:54:40.676823 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:40 +0800
+F, [2014-05-02T23:54:40.678693 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:40.697741 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/001/original/weini.png?1399046035" for 127.0.0.1 at 2014-05-02 23:54:40 +0800
+F, [2014-05-02T23:54:40.699441 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/001/original/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:40.718590 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/002/original/weini.png?1399046076" for 127.0.0.1 at 2014-05-02 23:54:40 +0800
+F, [2014-05-02T23:54:40.720412 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/002/original/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:42.490658 #33045]  INFO -- : Started GET "/users/sign_in" for 127.0.0.1 at 2014-05-02 23:54:42 +0800
+I, [2014-05-02T23:54:42.494771 #33045]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-05-02T23:54:42.586153 #33045]  INFO -- :   Rendered devise/shared/_links.erb (1.5ms)
+I, [2014-05-02T23:54:42.586279 #33045]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (6.3ms)
+I, [2014-05-02T23:54:42.587113 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:54:42.596985 #33045]  INFO -- :   Rendered layouts/_header.html.erb (9.7ms)
+I, [2014-05-02T23:54:42.597356 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:54:42.597653 #33045]  INFO -- : Completed 200 OK in 103ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+I, [2014-05-02T23:54:42.625862 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:42 +0800
+F, [2014-05-02T23:54:42.627745 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:43.930326 #33045]  INFO -- : Started POST "/users/sign_in" for 127.0.0.1 at 2014-05-02 23:54:43 +0800
+I, [2014-05-02T23:54:43.931801 #33045]  INFO -- : Processing by Devise::SessionsController#create as HTML
+I, [2014-05-02T23:54:43.931899 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "user"=>{"email"=>"123123@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+I, [2014-05-02T23:54:43.936178 #33045]  INFO -- : Completed 401 Unauthorized in 4ms
+I, [2014-05-02T23:54:43.937705 #33045]  INFO -- : Processing by Devise::SessionsController#new as HTML
+I, [2014-05-02T23:54:43.937764 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "user"=>{"email"=>"123123@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+I, [2014-05-02T23:54:44.010816 #33045]  INFO -- :   Rendered devise/shared/_links.erb (0.4ms)
+I, [2014-05-02T23:54:44.010959 #33045]  INFO -- :   Rendered devise/sessions/new.html.erb within layouts/application (2.9ms)
+I, [2014-05-02T23:54:44.011968 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:54:44.024028 #33045]  INFO -- :   Rendered layouts/_header.html.erb (11.8ms)
+I, [2014-05-02T23:54:44.024545 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:54:44.024880 #33045]  INFO -- : Completed 200 OK in 87ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+I, [2014-05-02T23:54:44.303250 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:44 +0800
+F, [2014-05-02T23:54:44.304302 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:47.272880 #33045]  INFO -- : Started GET "/users/sign_up" for 127.0.0.1 at 2014-05-02 23:54:47 +0800
+I, [2014-05-02T23:54:47.276047 #33045]  INFO -- : Processing by Devise::RegistrationsController#new as HTML
+I, [2014-05-02T23:54:47.289014 #33045]  INFO -- :   Rendered devise/shared/_links.erb (0.9ms)
+I, [2014-05-02T23:54:47.289221 #33045]  INFO -- :   Rendered devise/registrations/new.html.erb within layouts/application (6.0ms)
+I, [2014-05-02T23:54:47.290515 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:54:47.300801 #33045]  INFO -- :   Rendered layouts/_header.html.erb (10.1ms)
+I, [2014-05-02T23:54:47.301276 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:54:47.301678 #33045]  INFO -- : Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+I, [2014-05-02T23:54:47.603188 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:47 +0800
+F, [2014-05-02T23:54:47.604246 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:51.939812 #33045]  INFO -- : Started POST "/users" for 127.0.0.1 at 2014-05-02 23:54:51 +0800
+I, [2014-05-02T23:54:51.941006 #33045]  INFO -- : Processing by Devise::RegistrationsController#create as HTML
+I, [2014-05-02T23:54:51.941104 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "user"=>{"email"=>"82011@qq.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+E, [2014-05-02T23:54:52.022949 #33045] ERROR -- : Binary data inserted for `string` type on column `encrypted_password`
+E, [2014-05-02T23:54:52.027205 #33045] ERROR -- : Binary data inserted for `string` type on column `current_sign_in_ip`
+E, [2014-05-02T23:54:52.027297 #33045] ERROR -- : Binary data inserted for `string` type on column `last_sign_in_ip`
+I, [2014-05-02T23:54:52.033777 #33045]  INFO -- : Redirected to http://0.0.0.0:3000/
+I, [2014-05-02T23:54:52.033967 #33045]  INFO -- : Completed 302 Found in 93ms (ActiveRecord: 2.5ms)
+I, [2014-05-02T23:54:52.049926 #33045]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-05-02 23:54:52 +0800
+I, [2014-05-02T23:54:52.050904 #33045]  INFO -- : Processing by HomeController#index as HTML
+I, [2014-05-02T23:54:52.052544 #33045]  INFO -- : #<User:0x007fe5ca273168>
+I, [2014-05-02T23:54:52.052604 #33045]  INFO -- : &&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&
+I, [2014-05-02T23:54:52.052642 #33045]  INFO -- : &&&&&&&&&&&&&&&(((((((((((())))))))))))))))))))))))))))&&&&&&&&&&&&&&&&&&&&&
+I, [2014-05-02T23:54:52.053387 #33045]  INFO -- :   Rendered home/index.html.erb within layouts/application (0.3ms)
+I, [2014-05-02T23:54:52.054156 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:54:52.064402 #33045]  INFO -- :   Rendered layouts/_header.html.erb (10.1ms)
+I, [2014-05-02T23:54:52.064777 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:54:52.065041 #33045]  INFO -- : Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.3ms)
+I, [2014-05-02T23:54:52.255966 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:52 +0800
+F, [2014-05-02T23:54:52.257023 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:53.953717 #33045]  INFO -- : Started GET "/ablums" for 127.0.0.1 at 2014-05-02 23:54:53 +0800
+I, [2014-05-02T23:54:53.955622 #33045]  INFO -- : Processing by AblumsController#index as HTML
+I, [2014-05-02T23:54:53.966894 #33045]  INFO -- :   Rendered ablums/index.html.erb within layouts/application (8.3ms)
+I, [2014-05-02T23:54:53.972680 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:54:53.986184 #33045]  INFO -- :   Rendered layouts/_header.html.erb (13.2ms)
+I, [2014-05-02T23:54:53.986598 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:54:53.987093 #33045]  INFO -- : Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.7ms)
+I, [2014-05-02T23:54:54.015027 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:54 +0800
+F, [2014-05-02T23:54:54.016864 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:54.030179 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/001/original/weini.png?1399046035" for 127.0.0.1 at 2014-05-02 23:54:54 +0800
+F, [2014-05-02T23:54:54.031628 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/001/original/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:54.044533 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/002/original/weini.png?1399046076" for 127.0.0.1 at 2014-05-02 23:54:54 +0800
+F, [2014-05-02T23:54:54.045672 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/002/original/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:54:59.562650 #33045]  INFO -- : Started GET "/ablums/1/edit" for 127.0.0.1 at 2014-05-02 23:54:59 +0800
+I, [2014-05-02T23:54:59.564439 #33045]  INFO -- : Processing by AblumsController#edit as HTML
+I, [2014-05-02T23:54:59.564605 #33045]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-05-02T23:54:59.581793 #33045]  INFO -- :   Rendered ablums/_form.html.erb (6.2ms)
+I, [2014-05-02T23:54:59.582301 #33045]  INFO -- :   Rendered ablums/edit.html.erb within layouts/application (7.7ms)
+I, [2014-05-02T23:54:59.583170 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:54:59.594993 #33045]  INFO -- :   Rendered layouts/_header.html.erb (11.7ms)
+I, [2014-05-02T23:54:59.595432 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:54:59.595792 #33045]  INFO -- : Completed 200 OK in 31ms (Views: 27.4ms | ActiveRecord: 0.5ms)
+I, [2014-05-02T23:54:59.617194 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:54:59 +0800
+F, [2014-05-02T23:54:59.618473 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:03.918677 #33045]  INFO -- : Started PATCH "/ablums/1" for 127.0.0.1 at 2014-05-02 23:55:03 +0800
+I, [2014-05-02T23:55:03.920945 #33045]  INFO -- : Processing by AblumsController#update as HTML
+I, [2014-05-02T23:55:03.921206 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "ablum"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fe5cb542f28 @tempfile=#<Tempfile:/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/RackMultipart20140502-33045-1b45lts>, @original_filename="weini.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"ablum[avatar]\"; filename=\"weini.png\"\r\nContent-Type: image/png\r\n">, "title"=>"qweqwe", "text"=>"qweqwe", "publish"=>"1", "free"=>"t", "user_id"=>"1", "url"=>"asdfasfd"}, "commit"=>"Update Ablum", "id"=>"1"}
+I, [2014-05-02T23:55:03.931795 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-em5rc7.png'
+I, [2014-05-02T23:55:03.941292 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f.png[0]' 2>/dev/null
+I, [2014-05-02T23:55:04.043461 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f.png[0]'
+I, [2014-05-02T23:55:04.058390 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f.png[0]' -auto-orient -resize "300x300>" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f20140502-33045-jj8680'
+I, [2014-05-02T23:55:04.151055 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f20140502-33045-jj8680'
+I, [2014-05-02T23:55:04.160525 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f.png[0]' 2>/dev/null
+I, [2014-05-02T23:55:04.202707 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f.png[0]'
+I, [2014-05-02T23:55:04.215918 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f.png[0]' -auto-orient -resize "100x100>" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f20140502-33045-kn0cqa'
+I, [2014-05-02T23:55:04.292314 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1ydh95f20140502-33045-kn0cqa'
+I, [2014-05-02T23:55:04.304623 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/476a70d6cf65e99eeb159c2482ca459a20140502-33045-1eygpbc.png'
+I, [2014-05-02T23:55:04.314227 #33045]  INFO -- : [paperclip] deleting /Users/zenghui/Documents/github/Yue-Site/public/system/ablums/avatars/000/000/001/original/weini.png
+I, [2014-05-02T23:55:04.314514 #33045]  INFO -- : [paperclip] deleting /Users/zenghui/Documents/github/Yue-Site/public/system/ablums/avatars/000/000/001/medium/weini.png
+I, [2014-05-02T23:55:04.314670 #33045]  INFO -- : [paperclip] deleting /Users/zenghui/Documents/github/Yue-Site/public/system/ablums/avatars/000/000/001/thumb/weini.png
+I, [2014-05-02T23:55:04.326020 #33045]  INFO -- : Redirected to http://0.0.0.0:3000/ablums/1
+I, [2014-05-02T23:55:04.326632 #33045]  INFO -- : Completed 302 Found in 405ms (ActiveRecord: 1.4ms)
+I, [2014-05-02T23:55:04.348633 #33045]  INFO -- : Started GET "/ablums/1" for 127.0.0.1 at 2014-05-02 23:55:04 +0800
+I, [2014-05-02T23:55:04.350690 #33045]  INFO -- : Processing by AblumsController#show as HTML
+I, [2014-05-02T23:55:04.350784 #33045]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-05-02T23:55:04.370774 #33045]  INFO -- :   Rendered ablums/show.html.erb within layouts/application (14.3ms)
+I, [2014-05-02T23:55:04.372230 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:55:04.388874 #33045]  INFO -- :   Rendered layouts/_header.html.erb (16.5ms)
+I, [2014-05-02T23:55:04.389388 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:55:04.389833 #33045]  INFO -- : Completed 200 OK in 39ms (Views: 33.4ms | ActiveRecord: 1.2ms)
+I, [2014-05-02T23:55:04.592972 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:55:04 +0800
+F, [2014-05-02T23:55:04.596013 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:04.609407 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/001/original/weini.png?1399046103" for 127.0.0.1 at 2014-05-02 23:55:04 +0800
+F, [2014-05-02T23:55:04.611425 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/001/original/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:04.625326 #33045]  INFO -- : Started GET "/system/photos/avatars/000/000/001/medium/weini.png?1399046014" for 127.0.0.1 at 2014-05-02 23:55:04 +0800
+F, [2014-05-02T23:55:04.626463 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/photos/avatars/000/000/001/medium/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:06.229254 #33045]  INFO -- : Started GET "/ablums" for 127.0.0.1 at 2014-05-02 23:55:06 +0800
+I, [2014-05-02T23:55:06.230226 #33045]  INFO -- : Processing by AblumsController#index as HTML
+I, [2014-05-02T23:55:06.241342 #33045]  INFO -- :   Rendered ablums/index.html.erb within layouts/application (7.7ms)
+I, [2014-05-02T23:55:06.249591 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (6.5ms)
+I, [2014-05-02T23:55:06.266594 #33045]  INFO -- :   Rendered layouts/_header.html.erb (16.3ms)
+I, [2014-05-02T23:55:06.267006 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:55:06.267370 #33045]  INFO -- : Completed 200 OK in 37ms (Views: 33.8ms | ActiveRecord: 0.7ms)
+I, [2014-05-02T23:55:06.293183 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:55:06 +0800
+F, [2014-05-02T23:55:06.294342 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:06.305931 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/001/original/weini.png?1399046103" for 127.0.0.1 at 2014-05-02 23:55:06 +0800
+F, [2014-05-02T23:55:06.307271 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/001/original/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:06.317710 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/002/original/weini.png?1399046076" for 127.0.0.1 at 2014-05-02 23:55:06 +0800
+F, [2014-05-02T23:55:06.318949 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/002/original/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:10.743315 #33045]  INFO -- : Started GET "/ablums/1/edit" for 127.0.0.1 at 2014-05-02 23:55:10 +0800
+I, [2014-05-02T23:55:10.744879 #33045]  INFO -- : Processing by AblumsController#edit as HTML
+I, [2014-05-02T23:55:10.744979 #33045]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-05-02T23:55:10.756803 #33045]  INFO -- :   Rendered ablums/_form.html.erb (7.5ms)
+I, [2014-05-02T23:55:10.757517 #33045]  INFO -- :   Rendered ablums/edit.html.erb within layouts/application (8.4ms)
+I, [2014-05-02T23:55:10.758941 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:55:10.774578 #33045]  INFO -- :   Rendered layouts/_header.html.erb (15.3ms)
+I, [2014-05-02T23:55:10.774962 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:55:10.775230 #33045]  INFO -- : Completed 200 OK in 30ms (Views: 26.6ms | ActiveRecord: 0.4ms)
+I, [2014-05-02T23:55:10.796259 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:55:10 +0800
+F, [2014-05-02T23:55:10.797231 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:18.344165 #33045]  INFO -- : Started PATCH "/ablums/1" for 127.0.0.1 at 2014-05-02 23:55:18 +0800
+I, [2014-05-02T23:55:18.345111 #33045]  INFO -- : Processing by AblumsController#update as HTML
+I, [2014-05-02T23:55:18.345226 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "ablum"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fe5ca308da8 @tempfile=#<Tempfile:/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/RackMultipart20140502-33045-1pmowwt>, @original_filename="tumblr_n21gj7JdlY1qbwi2go1_1280.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"ablum[avatar]\"; filename=\"tumblr_n21gj7JdlY1qbwi2go1_1280.jpg\"\r\nContent-Type: image/jpeg\r\n">, "title"=>"qweqwe", "text"=>"qweqwe", "publish"=>"1", "free"=>"t", "user_id"=>"1", "url"=>"asdfasfd"}, "commit"=>"Update Ablum", "id"=>"1"}
+I, [2014-05-02T23:55:18.359789 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/3411a9ca509bd9a0c40f0983b5eb871b20140502-33045-1nyesm0.jpg'
+I, [2014-05-02T23:55:18.423070 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/3411a9ca509bd9a0c40f0983b5eb871b20140502-33045-11pwybz.jpg[0]' 2>/dev/null
+I, [2014-05-02T23:55:18.439993 #33045]  INFO -- : [paperclip] An error was received while processing: #<Paperclip::Errors::NotIdentifiedByImageMagickError: Paperclip::Errors::NotIdentifiedByImageMagickError>
+I, [2014-05-02T23:55:18.442319 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/3411a9ca509bd9a0c40f0983b5eb871b20140502-33045-11pwybz.jpg[0]' 2>/dev/null
+I, [2014-05-02T23:55:18.457497 #33045]  INFO -- : [paperclip] An error was received while processing: #<Paperclip::Errors::NotIdentifiedByImageMagickError: Paperclip::Errors::NotIdentifiedByImageMagickError>
+I, [2014-05-02T23:55:18.461618 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/3411a9ca509bd9a0c40f0983b5eb871b20140502-33045-oa2ec5.jpg'
+I, [2014-05-02T23:55:18.483733 #33045]  INFO -- :   Rendered ablums/_form.html.erb (10.2ms)
+I, [2014-05-02T23:55:18.484279 #33045]  INFO -- :   Rendered ablums/edit.html.erb within layouts/application (12.6ms)
+I, [2014-05-02T23:55:18.485513 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.1ms)
+I, [2014-05-02T23:55:18.498383 #33045]  INFO -- :   Rendered layouts/_header.html.erb (12.7ms)
+I, [2014-05-02T23:55:18.498812 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.2ms)
+I, [2014-05-02T23:55:18.499238 #33045]  INFO -- : Completed 200 OK in 154ms (Views: 28.9ms | ActiveRecord: 1.0ms)
+I, [2014-05-02T23:55:18.736260 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:55:18 +0800
+F, [2014-05-02T23:55:18.737560 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:30.260689 #33045]  INFO -- : Started PATCH "/ablums/1" for 127.0.0.1 at 2014-05-02 23:55:30 +0800
+I, [2014-05-02T23:55:30.263222 #33045]  INFO -- : Processing by AblumsController#update as HTML
+I, [2014-05-02T23:55:30.263421 #33045]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"75VKDQ1W5LTSWZaFAn/Oflm9zEjmm87COntvL1TFAwM=", "ablum"=>{"avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fe5cf158300 @tempfile=#<Tempfile:/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/RackMultipart20140502-33045-p3v9b6>, @original_filename="logo.gif", @content_type="image/gif", @headers="Content-Disposition: form-data; name=\"ablum[avatar]\"; filename=\"logo.gif\"\r\nContent-Type: image/gif\r\n">, "title"=>"qweqwe", "text"=>"qweqwe", "publish"=>"1", "free"=>"t", "user_id"=>"1", "url"=>"asdfasfd"}, "commit"=>"Update Ablum", "id"=>"1"}
+I, [2014-05-02T23:55:30.276266 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-xskb2b.gif'
+I, [2014-05-02T23:55:30.285173 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs0.gif[0]' 2>/dev/null
+I, [2014-05-02T23:55:30.307081 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs0.gif[0]'
+I, [2014-05-02T23:55:30.319989 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs0.gif' -coalesce -auto-orient -resize "300x300>" -layers "optimize" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs020140502-33045-ypo14x'
+I, [2014-05-02T23:55:30.434813 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs020140502-33045-ypo14x'
+I, [2014-05-02T23:55:30.443962 #33045]  INFO -- : Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs0.gif[0]' 2>/dev/null
+I, [2014-05-02T23:55:30.466243 #33045]  INFO -- : Command :: identify -format %m '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs0.gif[0]'
+I, [2014-05-02T23:55:30.480237 #33045]  INFO -- : Command :: convert '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs0.gif' -coalesce -auto-orient -resize "100x100>" -layers "optimize" '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs020140502-33045-1cegew9'
+I, [2014-05-02T23:55:30.541968 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-bw6bs020140502-33045-1cegew9'
+I, [2014-05-02T23:55:30.553200 #33045]  INFO -- : Command :: file -b --mime '/var/folders/yc/4ns1tt6n0v9cvyccg887w_c40000gn/T/96d6f2e7e1f705ab5e59c84a6dc009b220140502-33045-1ro1vc1.gif'
+E, [2014-05-02T23:55:30.561413 #33045] ERROR -- : Binary data inserted for `string` type on column `avatar_content_type`
+I, [2014-05-02T23:55:30.562458 #33045]  INFO -- : [paperclip] deleting /Users/zenghui/Documents/github/Yue-Site/public/system/ablums/avatars/000/000/001/original/weini.png
+I, [2014-05-02T23:55:30.562766 #33045]  INFO -- : [paperclip] deleting /Users/zenghui/Documents/github/Yue-Site/public/system/ablums/avatars/000/000/001/medium/weini.png
+I, [2014-05-02T23:55:30.562918 #33045]  INFO -- : [paperclip] deleting /Users/zenghui/Documents/github/Yue-Site/public/system/ablums/avatars/000/000/001/thumb/weini.png
+I, [2014-05-02T23:55:30.573273 #33045]  INFO -- : Redirected to http://0.0.0.0:3000/ablums/1
+I, [2014-05-02T23:55:30.573679 #33045]  INFO -- : Completed 302 Found in 310ms (ActiveRecord: 1.6ms)
+I, [2014-05-02T23:55:30.590143 #33045]  INFO -- : Started GET "/ablums/1" for 127.0.0.1 at 2014-05-02 23:55:30 +0800
+I, [2014-05-02T23:55:30.591541 #33045]  INFO -- : Processing by AblumsController#show as HTML
+I, [2014-05-02T23:55:30.591606 #33045]  INFO -- :   Parameters: {"id"=>"1"}
+I, [2014-05-02T23:55:30.598583 #33045]  INFO -- :   Rendered ablums/show.html.erb within layouts/application (4.0ms)
+I, [2014-05-02T23:55:30.599686 #33045]  INFO -- :   Rendered layouts/_shim.html.erb (0.0ms)
+I, [2014-05-02T23:55:30.610688 #33045]  INFO -- :   Rendered layouts/_header.html.erb (10.9ms)
+I, [2014-05-02T23:55:30.611064 #33045]  INFO -- :   Rendered layouts/_footer.html.erb (0.1ms)
+I, [2014-05-02T23:55:30.611404 #33045]  INFO -- : Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.5ms)
+I, [2014-05-02T23:55:30.850182 #33045]  INFO -- : Started GET "/images/logo-18.png" for 127.0.0.1 at 2014-05-02 23:55:30 +0800
+F, [2014-05-02T23:55:30.853744 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/images/logo-18.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:30.862553 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/001/original/logo.gif?1399046130" for 127.0.0.1 at 2014-05-02 23:55:30 +0800
+F, [2014-05-02T23:55:30.865641 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/001/original/logo.gif"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:30.874203 #33045]  INFO -- : Started GET "/system/photos/avatars/000/000/001/medium/weini.png?1399046014" for 127.0.0.1 at 2014-05-02 23:55:30 +0800
+F, [2014-05-02T23:55:30.875814 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/photos/avatars/000/000/001/medium/weini.png"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-05-02T23:55:35.479934 #33045]  INFO -- : Started GET "/system/ablums/avatars/000/000/001/original/logo.gif?1399046130" for 127.0.0.1 at 2014-05-02 23:55:35 +0800
+F, [2014-05-02T23:55:35.480906 #33045] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/system/ablums/avatars/000/000/001/original/logo.gif"):
+  actionpack (4.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.0) lib/rails/engine.rb:514:in `call'
+  railties (4.1.0) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/zenghui/.rvm/rubies/ruby-2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+

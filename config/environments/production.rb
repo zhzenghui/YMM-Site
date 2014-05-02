@@ -77,4 +77,18 @@ Yue::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+
+
+
+  
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  
+  I18n.enforce_available_locales = false
+  
+  Paperclip.options[:command_path] = "/usr/local/bin"
+
+
+
+
 end
