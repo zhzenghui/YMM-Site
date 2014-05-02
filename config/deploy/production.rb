@@ -27,9 +27,6 @@ set :rails_env, :production
 set :deploy_to, "/home/www/#{fetch(:application)}"
 
 
-
-set :nginx_server_name, '115.28.188.236'
-
 set :unicorn_workers, 4
 set :unicorn_pid, shared_path.join("tmp/pids/unicorn.pid")
 set :unicorn_config, shared_path.join("config/unicorn.rb")
