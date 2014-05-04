@@ -92,6 +92,6 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-safe-deploy-to', '~> 1.1'
   gem 'capistrano-unicorn-nginx', '~> 2.0'
-
+  gem 'capistrano3-unicorn'
   
 end 
