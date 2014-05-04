@@ -31,7 +31,7 @@ set :unicorn_env, :production
 
 
 set :nginx_server_name, '115.28.188.236'
-set :nginx_pid, "/run/nginx.pid"
+set :nginx_pid, "/var/run/nginx.pid"
 
 
 

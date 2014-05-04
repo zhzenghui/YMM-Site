@@ -54,8 +54,8 @@ namespace :deploy do
 
   after :publishing, :restart
 
+  after :publishing, "unicorn:start"
   after :publishing, "nginx:reload"
-  after :publishing, "unicorn:restart"
 
 
   after :restart, :clear_cache do
