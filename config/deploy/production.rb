@@ -42,18 +42,6 @@ set :unicorn_workers, 1
 
 
 
-namespace :deploy do
-
-  desc 'Restart NGINX'
-  task :restart do
-    on roles(:app), in: :sequence, wait: 1 do
-       execute :sudo, "./restart.sh"
-    end
-  end
-
-end
-
-
 
 
 
