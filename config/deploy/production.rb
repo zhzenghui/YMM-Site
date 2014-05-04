@@ -1,6 +1,6 @@
 
 
-set :application, "ymm"
+set :application, "Yue-Site"
 
 
 set :user, 'root'
@@ -20,10 +20,11 @@ set :rvm_custom_path, '/usr/local/rvm/'  # only needed if not detected
 
 
 
-
 server 'root@115.28.188.236', roles: [:web, :app] 
 
 set :rails_env, :production
+set :unicorn_env, :production
+
 set :deploy_to, "/home/www/#{fetch(:application)}"
 
 
