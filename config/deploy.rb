@@ -1,5 +1,5 @@
 # config valid only for Capistrano 3.1
-lock '3.2.1'
+lock '3.1'
 
 set :application, "Yue-Site"
 set :repo_url, 'https://github.com/zhzenghui/YMM-Site.git'

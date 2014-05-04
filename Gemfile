@@ -86,8 +86,9 @@ gem 'unicorn'
 group :development do
   gem 'logger'
 
-  gem 'capistrano', '~> 3.2.0'
+  gem 'capistrano', '~> 3.1.0'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rvm', '~> 0.1.0'
   gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-safe-deploy-to', '~> 1.1'
 end 
