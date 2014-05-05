@@ -15,6 +15,7 @@ set :deploy_to, "/home/www/#{fetch(:application)}"
 
 
 
+
 # rvm 
 set :rvm_ruby_version, 'ruby-2.1.0'
 set :rvm_type, :user                     # Defaults to: :auto
