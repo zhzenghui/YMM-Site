@@ -37,8 +37,8 @@ set :nginx_pid, "/var/run/nginx.pid"
 
 
 set :unicorn_service, "unicorn_#{fetch(:application)}_#{fetch(:stage)}"
-set :unicorn_pid, "#{fetch(:deploy_to)}/tmp/pids/unicorn.pid"
-set :unicorn_config, "#{fetch(:deploy_to)}/config/unicorn.rb"
+set :unicorn_pid, "#{fetch(:deploy_to)}/current/tmp/pids/unicorn.pid"
+set :unicorn_config, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
 set :unicorn_workers, 1
 
 
