@@ -3,6 +3,7 @@ lock '3.1'
 
 set :application, "Yue-Site"
 set :repo_url, 'https://github.com/zhzenghui/YMM-Site.git'
+set :stage, :production
 
 
 # Default branch is :master
@@ -36,10 +37,18 @@ set :repo_url, 'https://github.com/zhzenghui/YMM-Site.git'
 # set :keep_releases, 5
 
 
-set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public }
 
 
+
+
+
+set :unicorn_service, "unicorn_#{fetch(:application)}_#{fetch(:stage)}"
+set :unicorn_pid, "#{fetch(:deploy_to)}/current/tmp/pids/unicorn.pid"
+set :unicorn_config, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
+set :unicorn_workers, 1
+
+
+puts "#{fetch(:unicorn_config)}"
 
 
 namespace :deploy do
@@ -63,7 +72,7 @@ namespace :deploy do
     end
   end
 
-  
+
   after :finishing, "deploy:cleanup"
 
 end
