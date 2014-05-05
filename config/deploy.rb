@@ -42,15 +42,6 @@ set :stage, :production
 
 
 
-set :unicorn_service, "unicorn_#{fetch(:application)}_#{fetch(:stage)}"
-set :unicorn_pid, "#{fetch(:deploy_to)}/current/tmp/pids/unicorn.pid"
-set :unicorn_config, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
-set :unicorn_workers, 1
-
-
-puts "#{fetch(:unicorn_config)}"
-
-
 namespace :deploy do
 
   desc 'Restart application'

@@ -29,6 +29,14 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 
 
+set :unicorn_service, "unicorn_#{fetch(:application)}_#{fetch(:stage)}"
+set :unicorn_pid, "#{fetch(:deploy_to)}/current/tmp/pids/unicorn.pid"
+set :unicorn_config, "#{fetch(:deploy_to)}/current/config/unicorn.rb"
+set :unicorn_workers, 1
+
+
+
+puts "#{fetch(:unicorn_config)}"
 
 
 server 'root@115.28.188.236', roles: [:web, :app] 
