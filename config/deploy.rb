@@ -1,10 +1,18 @@
 # config valid only for Capistrano 3.1
 lock '3.1'
 
+
+
+
+
 set :application, "Yue-Site"
 set :repo_url, 'https://github.com/zhzenghui/YMM-Site.git'
 set :stage, :production
 
+
+set :ssh_options, {
+  port: 899
+}
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call

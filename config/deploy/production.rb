@@ -11,7 +11,7 @@ role :app, %w{root@115.28.188.236}
 role :web, %w{root@115.28.188.236}
 role :db,  %w{root@115.28.188.236}
 
-set :deploy_to, "/home/www/#{fetch(:application)}"
+set :deploy_to, "/alidata1/www/#{fetch(:application)}"
 
 
 
