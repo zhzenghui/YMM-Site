@@ -1,24 +1,40 @@
-# Set the working application directory
-# working_directory "/path/to/your/app"
-working_directory "/home/www/Yue-Site/current"
+module Rails
+  class <<self
+    def root
+      File.expand_path("../..", __FILE__)
+    end
+  end
+end
+puts Rails.root
+rails_env = ENV["RAILS_ENV"] || "development"
 
-# Unicorn PID file location
-# pid "/path/to/pids/unicorn.pid"
-pid "/home/www/Yue-Site/current/tmp/pids/unicorn.pid"
+preload_app true
+working_directory Rails.root
+pid "#{Rails.root}/tmp/pids/unicorn.pid"
+stderr_path "#{Rails.root}/log/unicorn.log"
+stdout_path "#{Rails.root}/log/unicorn.log"
 
-# Path to logs
-# stderr_path "/path/to/log/unicorn.log"
-# stdout_path "/path/to/log/unicorn.log"
-stderr_path "/home/www/Yue-Site/current/log/unicorn.log"
-stdout_path "/home/www/Yue-Site/current/log/unicorn.log"
+listen 5000, :tcp_nopush => false
 
-# Unicorn socket
 listen "/tmp/unicorn.Yue-Site.sock"
-
-
-# Number of processes
-# worker_processes 4
 worker_processes 2
+timeout 120
 
-# Time-out
-timeout 30
+if GC.respond_to?(:copy_on_write_friendly=)
+  GC.copy_on_write_friendly = true
+end
+
+before_exec do |server|
+  ENV["BUNDLE_GEMFILE"] = "#{Rails.root}/Gemfile"
+end
+
+before_fork do |server, worker|
+  old_pid = "#{Rails.root}/tmp/pids/unicorn.pid.oldbin"
+  if File.exists?(old_pid) && server.pid != old_pid
+    begin
+      Process.kill("QUIT", File.read(old_pid).to_i)
+    rescue Errno::ENOENT, Errno::ESRCH
+      puts "Send 'QUIT' signal to unicorn error!"
+    end
+  end
+end
