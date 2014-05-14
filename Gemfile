@@ -76,10 +76,14 @@ end
 
 gem 'psych'
 
-# Use the Unicorn app server
-gem 'unicorn'
-gem 'mysql2', '0.3.15'
+group :production do
 
+  # Use the Unicorn app server
+  gem 'unicorn'
+  gem 'mysql2', '0.3.15'
+
+
+end 
 # group :production do
 #   gem 'pg', '0.17.1'
 # end 

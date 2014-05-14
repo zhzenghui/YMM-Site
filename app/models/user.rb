@@ -1,5 +1,17 @@
-class User < ActiveRecord::Base
 
+class User < ActiveRecord::Base
+  STATE = {
+    # 软删除
+    :deleted => -1,
+    # 正常
+    :normal => 1,
+    # 屏蔽
+    :blocked => 2,
+  }
+
+
+
+  
   has_many :posts
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
@@ -34,7 +46,7 @@ class User < ActiveRecord::Base
 
 
 	def user_params
-	  params.require(:user).permit(:avatar)
+	  params.require(:user).permit(:avatar, :email, :password)
 	end
 
 end

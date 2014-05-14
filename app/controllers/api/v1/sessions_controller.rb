@@ -27,4 +27,17 @@ class Api::V1::SessionsController < Devise::SessionsController
   end
 
 
+  def failure
+    render :status => 401,
+           :json => { :success => false,
+                      :info => "Login Failed",
+                      :data => {} }
+  end
+
+
+
+  def sign_in_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
 end

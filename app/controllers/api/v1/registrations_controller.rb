@@ -14,7 +14,7 @@ class Api::V1::RegistrationsController < Devise::RegistrationsController
            :json => { :success => true,
                       :info => t("devise.registrations.signed_up"),
                       :data => { :user => resource,
-                                 :auth_token => current_user.email } }
+                                 :auth_token => current_user.authentication_token } }
     else
       render :status => :unprocessable_entity,
              :json => { :success => false,
