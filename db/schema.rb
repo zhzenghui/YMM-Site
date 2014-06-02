@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602141741) do
+ActiveRecord::Schema.define(version: 20140602160728) do
 
   create_table "ablums", force: true do |t|
     t.string   "title"
@@ -128,6 +128,11 @@ ActiveRecord::Schema.define(version: 20140602141741) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "user_type"
+    t.string   "pulish_type"
+    t.integer  "sender_type"
+    t.string   "sender_id"
+    t.string   "balance"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true
