@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140417161802) do
+ActiveRecord::Schema.define(version: 20140602141741) do
 
   create_table "ablums", force: true do |t|
     t.string   "title"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20140417161802) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
   create_table "images", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "in_app_types", force: true do |t|
+    t.string   "display_name"
+    t.string   "in_app_type"
+    t.text     "description"
+    t.string   "apple_id"
+    t.string   "apple_bundle_id"
+    t.string   "apple_type"
+    t.decimal  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,45 @@
+<%= form_for(@in_app_type) do |f| %>
+  <% if @in_app_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@in_app_type.errors.count, "error") %> prohibited this in_app_type from being saved:</h2>
+
+      <ul>
+      <% @in_app_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :display_name %><br>
+    <%= f.text_field :display_name %>
+  </div>
+  <div class="field">
+    <%= f.label :in_app_type %><br>
+    <%= f.text_field :in_app_type %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :apple_id %><br>
+    <%= f.text_field :apple_id %>
+  </div>
+  <div class="field">
+    <%= f.label :apple_bundle_id %><br>
+    <%= f.text_field :apple_bundle_id %>
+  </div>
+  <div class="field">
+    <%= f.label :apple_type %><br>
+    <%= f.text_field :apple_type %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

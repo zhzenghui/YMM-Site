@@ -1,4 +1,6 @@
 Yue::Application.routes.draw do
+  resources :in_app_types
+
   resources :photos
 
   resources :ablums

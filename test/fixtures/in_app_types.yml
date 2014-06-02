@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  display_name: MyString
+  in_app_type: MyString
+  description: MyText
+  apple_id: MyString
+  apple_bundle_id: MyString
+  apple_type: MyString
+  price: 9.99
+
+two:
+  display_name: MyString
+  in_app_type: MyString
+  description: MyText
+  apple_id: MyString
+  apple_bundle_id: MyString
+  apple_type: MyString
+  price: 9.99

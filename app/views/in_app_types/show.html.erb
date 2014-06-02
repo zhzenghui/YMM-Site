@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @in_app_type.display_name %>
+</p>
+
+<p>
+  <strong>In app type:</strong>
+  <%= @in_app_type.in_app_type %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @in_app_type.description %>
+</p>
+
+<p>
+  <strong>Apple:</strong>
+  <%= @in_app_type.apple_id %>
+</p>
+
+<p>
+  <strong>Apple bundle:</strong>
+  <%= @in_app_type.apple_bundle_id %>
+</p>
+
+<p>
+  <strong>Apple type:</strong>
+  <%= @in_app_type.apple_type %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @in_app_type.price %>
+</p>
+
+<%= link_to 'Edit', edit_in_app_type_path(@in_app_type) %> |
+<%= link_to 'Back', in_app_types_path %>
