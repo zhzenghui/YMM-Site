@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= image_tag @album.avatar.url %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @album.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @album.text %>
+</p>
+
+<p>
+  <strong>Publish:</strong>
+  <%= @album.publish %>
+</p>
+
+<p>
+  <strong>Free:</strong>
+  <%= @album.free %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @album.user.email %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @album.url %>
+</p>
+
+<table>
+ 
+ 
+    <% @album.photos.each do |photo| %>
+      <tr>
+        <td>  <%= image_tag photo.avatar.url(:medium) %></td>
+      </tr>
+    <% end %>
+ </table>
+
+
+
+
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>

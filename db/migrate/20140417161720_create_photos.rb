@@ -3,7 +3,7 @@ class CreatePhotos < ActiveRecord::Migration
     create_table :photos do |t|
       t.boolean :buyShow
       t.boolean :is_conver
-      t.references :ablum, index: true
+      t.references :album, index: true
       t.integer :status
 
       t.timestamps

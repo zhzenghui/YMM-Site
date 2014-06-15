@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140602160728) do
 
-  create_table "ablums", force: true do |t|
+  create_table "albums", force: true do |t|
     t.string   "title"
     t.text     "text"
     t.integer  "publish"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140602160728) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "ablums", ["user_id"], name: "index_ablums_on_user_id"
+  add_index "albums", ["user_id"], name: "index_albums_on_user_id"
 
   create_table "comments", force: true do |t|
     t.string   "commenter"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140602160728) do
   create_table "photos", force: true do |t|
     t.boolean  "buyShow"
     t.boolean  "is_conver"
-    t.integer  "ablum_id"
+    t.integer  "album_id"
     t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20140602160728) do
     t.datetime "avatar_updated_at"
   end
 
-  add_index "photos", ["ablum_id"], name: "index_photos_on_ablum_id"
+  add_index "photos", ["album_id"], name: "index_photos_on_album_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"
