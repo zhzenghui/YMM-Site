@@ -22,5 +22,6 @@ module Yue
 
     config.assets.precompile +=%w(*.png *.jpg *.jpeg *.gif)
 
+    config.force_ssl = true
   end
 end
