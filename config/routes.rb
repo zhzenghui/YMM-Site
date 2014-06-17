@@ -51,7 +51,7 @@ Yue::Application.routes.draw do
 
 
         
-
+        get "test" => 'test#index', :as => 'test'
 
 
       end
