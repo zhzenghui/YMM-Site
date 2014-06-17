@@ -48,7 +48,7 @@ set :unicorn_env, :production
 
 set :nginx_use_ssl, true
 set :nginx_ssl_certificate_local_path, "/etc/ssl/certs/yuenvshen.com.crt"
-set :nginx_ssl_certificate_key_local_path, "/etc/ssl/certs/yuenvshen.com.key"
+set :nginx_ssl_certificate_key_local_path, "/etc/ssl/private/yuenvshen.com.key"
 
 set :nginx_config_path, "/etc/nginx/sites-available/"
 # set :nginx_server_name, '115.28.188.236'
