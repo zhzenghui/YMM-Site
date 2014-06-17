@@ -43,3 +43,5 @@ server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+set :nginx_ssl_certificate_local_path, "/alidata1/ssh/server.crt"
+set :nginx_ssl_certificate_key_local_path, "/alidata1/ssh/api.bz_nopass.key"
