@@ -1,7 +1,8 @@
 class Api::V1::UsersController < ApplicationController
 
-	skip_before_filter :verify_authenticity_token,
-										 :if => Proc.new { |c| c.request.format == 'application/json' }
+	skip_before_filter :verify_authenticity_token
+	# ,
+	# 									 :if => Proc.new { |c| c.request.format == 'application/json' }
 	respond_to :json
 	WillPaginate.per_page = 10
 
@@ -43,5 +44,13 @@ class Api::V1::UsersController < ApplicationController
 										 :info =>" @task.errors.full_messages",
 										 :data => {} }
 	end 
+
+
+	def follow
+	end
+
+
+	def unfollow
+	end
 
 end
