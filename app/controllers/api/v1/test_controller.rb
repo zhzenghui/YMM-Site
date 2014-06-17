@@ -11,6 +11,13 @@ class Api::V1::TestController < ApplicationController
 										 :data => "test"}
 	end
 
+	def test
 	
+		render :status => 200,
+						:json => { :success => true,
+										 :info => "post test",
+										 :data => "post test"}
+	end
+
 
 end
