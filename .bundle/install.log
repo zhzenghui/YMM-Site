@@ -1,0 +1,207 @@
+# Logfile created on 2014-06-17 14:56:59 +0800 by logger.rb/36483
+I, [2014-06-17T14:56:59.340786 #4305]  INFO -- : 0:  rake (10.3.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/rake-10.3.1.gemspec
+I, [2014-06-17T14:56:59.352816 #4305]  INFO -- : 0:  i18n (0.6.9) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/i18n-0.6.9.gemspec
+I, [2014-06-17T14:56:59.353285 #4305]  INFO -- : 0:  json (1.8.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/json-1.8.1.gemspec
+I, [2014-06-17T14:57:01.030811 #4305]  INFO -- : 0:  minitest (5.3.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/minitest-5.3.3.gemspec
+I, [2014-06-17T14:57:01.765106 #4305]  INFO -- : 0:  thread_safe (0.3.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/thread_safe-0.3.3.gemspec
+I, [2014-06-17T14:57:02.389671 #4305]  INFO -- : 0:  tzinfo (1.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/tzinfo-1.1.0.gemspec
+I, [2014-06-17T14:57:03.785083 #4305]  INFO -- : 0:  activesupport (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/activesupport-4.1.0.gemspec
+I, [2014-06-17T14:57:04.124198 #4305]  INFO -- : 0:  builder (3.2.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/builder-3.2.2.gemspec
+I, [2014-06-17T14:57:04.127661 #4305]  INFO -- : 0:  erubis (2.7.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/erubis-2.7.0.gemspec
+I, [2014-06-17T14:57:05.407323 #4305]  INFO -- : 0:  actionview (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/actionview-4.1.0.gemspec
+I, [2014-06-17T14:57:05.416057 #4305]  INFO -- : 0:  rack (1.5.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/rack-1.5.2.gemspec
+I, [2014-06-17T14:57:05.416462 #4305]  INFO -- : 0:  rack-test (0.6.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/rack-test-0.6.2.gemspec
+I, [2014-06-17T14:57:07.106931 #4305]  INFO -- : 0:  actionpack (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/actionpack-4.1.0.gemspec
+I, [2014-06-17T14:57:07.119843 #4305]  INFO -- : 0:  mime-types (1.25.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/mime-types-1.25.1.gemspec
+I, [2014-06-17T14:57:07.120266 #4305]  INFO -- : 0:  polyglot (0.3.4) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/polyglot-0.3.4.gemspec
+I, [2014-06-17T14:57:07.120623 #4305]  INFO -- : 0:  treetop (1.4.15) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/treetop-1.4.15.gemspec
+I, [2014-06-17T14:57:07.120954 #4305]  INFO -- : 0:  mail (2.5.4) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/mail-2.5.4.gemspec
+I, [2014-06-17T14:57:07.478302 #4305]  INFO -- : 0:  actionmailer (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/actionmailer-4.1.0.gemspec
+I, [2014-06-17T14:57:07.923229 #4305]  INFO -- : 0:  activemodel (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/activemodel-4.1.0.gemspec
+I, [2014-06-17T14:57:08.459510 #4305]  INFO -- : 0:  arel (5.0.1.20140414130214) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/arel-5.0.1.20140414130214.gemspec
+I, [2014-06-17T14:57:09.324361 #4305]  INFO -- : 0:  activerecord (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/activerecord-4.1.0.gemspec
+I, [2014-06-17T14:57:09.764151 #4305]  INFO -- : 0:  acts-as-taggable-on (3.1.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/acts-as-taggable-on-3.1.1.gemspec
+I, [2014-06-17T14:57:10.070210 #4305]  INFO -- : 0:  acts_as_votable (0.8.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/acts_as_votable-0.8.0.gemspec
+I, [2014-06-17T14:57:10.074990 #4305]  INFO -- : 0:  bcrypt (3.1.7) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bcrypt-3.1.7.gemspec
+I, [2014-06-17T14:57:10.075442 #4305]  INFO -- : 0:  bcrypt-ruby (3.1.5) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bcrypt-ruby-3.1.5.gemspec
+I, [2014-06-17T14:57:11.192380 #4305]  INFO -- : 0:  sass (3.2.18) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/sass-3.2.18.gemspec
+I, [2014-06-17T14:57:11.214429 #4305]  INFO -- : 0:  bootstrap-sass (3.0.3.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bootstrap-sass-3.0.3.0.gemspec
+I, [2014-06-17T14:57:11.214866 #4305]  INFO -- : 0:  will_paginate (3.0.5) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/will_paginate-3.0.5.gemspec
+I, [2014-06-17T14:57:11.215204 #4305]  INFO -- : 0:  bootstrap-will_paginate (0.0.9) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bootstrap-will_paginate-0.0.9.gemspec
+I, [2014-06-17T14:57:11.215499 #4305]  INFO -- : 0:  bundler (1.5.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bundler-1.5.0.gemspec
+I, [2014-06-17T14:57:11.215795 #4305]  INFO -- : 0:  cancan (1.6.10) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/cancan-1.6.10.gemspec
+I, [2014-06-17T14:57:11.834377 #4305]  INFO -- : 0:  net-ssh (2.9.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/net-ssh-2.9.0.gemspec
+I, [2014-06-17T14:57:12.193825 #4305]  INFO -- : 0:  net-scp (1.2.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/net-scp-1.2.1.gemspec
+I, [2014-06-17T14:57:13.346503 #4305]  INFO -- : 0:  tins (1.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/tins-1.1.0.gemspec
+I, [2014-06-17T14:57:15.396855 #4305]  INFO -- : 0:  term-ansicolor (1.3.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/term-ansicolor-1.3.0.gemspec
+I, [2014-06-17T14:57:16.108094 #4305]  INFO -- : 0:  sshkit (1.4.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/sshkit-1.4.0.gemspec
+I, [2014-06-17T14:57:16.518034 #4305]  INFO -- : 0:  capistrano (3.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-3.1.0.gemspec
+I, [2014-06-17T14:57:16.757455 #4305]  INFO -- : 0:  capistrano-bundler (1.1.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-bundler-1.1.2.gemspec
+I, [2014-06-17T14:57:17.080160 #4305]  INFO -- : 0:  capistrano-rails (1.1.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-rails-1.1.1.gemspec
+I, [2014-06-17T14:57:17.352343 #4305]  INFO -- : 0:  capistrano-rvm (0.1.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-rvm-0.1.1.gemspec
+I, [2014-06-17T14:57:17.642937 #4305]  INFO -- : 0:  capistrano-safe-deploy-to (1.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-safe-deploy-to-1.1.0.gemspec
+I, [2014-06-17T14:57:17.952858 #4305]  INFO -- : 0:  capistrano-unicorn-nginx (2.0.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-unicorn-nginx-2.0.0.gemspec
+I, [2014-06-17T14:57:17.956398 #4305]  INFO -- : 0:  climate_control (0.0.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/climate_control-0.0.3.gemspec
+I, [2014-06-17T14:57:18.330434 #4305]  INFO -- : 0:  cocaine (0.5.4) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/cocaine-0.5.4.gemspec
+I, [2014-06-17T14:57:18.334993 #4305]  INFO -- : 0:  coffee-script-source (1.7.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/coffee-script-source-1.7.0.gemspec
+I, [2014-06-17T14:57:18.335482 #4305]  INFO -- : 0:  execjs (2.0.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/execjs-2.0.2.gemspec
+I, [2014-06-17T14:57:18.335844 #4305]  INFO -- : 0:  coffee-script (2.2.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/coffee-script-2.2.0.gemspec
+I, [2014-06-17T14:57:18.336178 #4305]  INFO -- : 0:  thor (0.19.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/thor-0.19.1.gemspec
+I, [2014-06-17T14:57:19.131198 #4305]  INFO -- : 0:  railties (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/railties-4.1.0.gemspec
+I, [2014-06-17T14:57:19.156002 #4305]  INFO -- : 0:  coffee-rails (4.0.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/coffee-rails-4.0.1.gemspec
+I, [2014-06-17T14:57:19.156430 #4305]  INFO -- : 0:  orm_adapter (0.5.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/orm_adapter-0.5.0.gemspec
+I, [2014-06-17T14:57:19.156756 #4305]  INFO -- : 0:  warden (1.2.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/warden-1.2.3.gemspec
+I, [2014-06-17T14:57:19.157076 #4305]  INFO -- : 0:  devise (3.2.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/devise-3.2.2.gemspec
+I, [2014-06-17T14:57:20.035311 #4305]  INFO -- : 0:  font-awesome-rails (4.0.3.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/font-awesome-rails-4.0.3.1.gemspec
+I, [2014-06-17T14:57:20.040874 #4305]  INFO -- : 0:  tilt (1.4.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/tilt-1.4.1.gemspec
+I, [2014-06-17T14:57:20.589678 #4305]  INFO -- : 0:  haml (4.0.5) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/haml-4.0.5.gemspec
+I, [2014-06-17T14:57:20.597717 #4305]  INFO -- : 0:  hike (1.2.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/hike-1.2.3.gemspec
+I, [2014-06-17T14:57:20.937720 #4305]  INFO -- : 0:  multi_json (1.9.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/multi_json-1.9.3.gemspec
+I, [2014-06-17T14:57:20.943433 #4305]  INFO -- : 0:  jbuilder (1.5.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/jbuilder-1.5.3.gemspec
+I, [2014-06-17T14:57:20.943968 #4305]  INFO -- : 0:  jquery-rails (3.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/jquery-rails-3.1.0.gemspec
+I, [2014-06-17T14:57:21.589884 #4305]  INFO -- : 0:  jquery-ui-rails (4.2.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/jquery-ui-rails-4.2.0.gemspec
+I, [2014-06-17T14:57:21.602461 #4305]  INFO -- : 0:  kaminari (0.15.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/kaminari-0.15.1.gemspec
+I, [2014-06-17T14:57:28.625783 #4305]  INFO -- : 0:  kgio (2.9.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/kgio-2.9.2.gemspec
+E, [2014-06-17T14:57:44.859371 #4305] ERROR -- : Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+
+    /Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/bin/ruby extconf.rb 
+creating Makefile
+Compiling v8 for x64
+Using python 2.7.6
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer//usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/c++/4.2.1
+Unable to find a compiler officially supported by v8.
+It is recommended to use GCC v4.4 or higher
+Using compiler: g++
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer//usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/c++/4.2.1
+Unable to find a compiler officially supported by v8.
+It is recommended to use GCC v4.4 or higher
+../src/cached-powers.cc:136:18: error: unused variable 'kCachedPowersLength' [-Werror,-Wunused-const-variable]
+static const int kCachedPowersLength = ARRAY_SIZE(kCachedPowers);
+                 ^
+1 error generated.
+make[1]: *** [/Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/cached-powers.o] Error 1
+make: *** [x64.release] Error 2
+/Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/ext/libv8/location.rb:36:in `block in verify_installation!': libv8 did not install properly, expected binary v8 archive '/Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/tools/gyp/libv8_base.a'to exist, but it was not found (Libv8::Location::Vendor::ArchiveNotFound)
+	from /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/ext/libv8/location.rb:35:in `each'
+	from /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/ext/libv8/location.rb:35:in `verify_installation!'
+	from /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/ext/libv8/location.rb:26:in `install!'
+	from extconf.rb:7:in `<main>'
+GYP_GENERATORS=make \
+	build/gyp/gyp --generator-output="out" build/all.gyp \
+	              -Ibuild/standalone.gypi --depth=. \
+	              -Dv8_target_arch=x64 \
+	              -S.x64  -Dv8_enable_backtrace=1 -Dv8_can_use_vfp2_instructions=true -Darm_fpu=vfpv2 -Dv8_can_use_vfp3_instructions=true -Darm_fpu=vfpv3
+  CXX(target) /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/allocation.o
+  CXX(target) /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/atomicops_internals_x86_gcc.o
+  CXX(target) /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/bignum.o
+  CXX(target) /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/bignum-dtoa.o
+  CXX(target) /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/cached-powers.o
+
+
+Gem files will remain installed in /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3 for inspection.
+Results logged to /Users/lifeng/.bundler/tmp/4305/gems/libv8-3.16.14.3/ext/libv8/gem_make.out
+
+/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:77:in `run'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/ext_conf_builder.rb:39:in `block in build'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/tempfile.rb:324:in `open'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/ext_conf_builder.rb:19:in `build'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:148:in `block (2 levels) in build_extension'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:147:in `chdir'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:147:in `block in build_extension'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:146:in `synchronize'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:146:in `build_extension'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:180:in `block in build_extensions'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:177:in `each'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:177:in `build_extensions'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/installer.rb:667:in `build_extensions'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/installer.rb:225:in `install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:101:in `block in install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:118:in `preserve_paths'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:94:in `install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:111:in `block in install_gem_from_spec'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:150:in `with_build_args'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:110:in `install_gem_from_spec'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:295:in `block in install_sequentially'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/forwardable.rb:171:in `each'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/forwardable.rb:171:in `each'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:294:in `install_sequentially'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:97:in `run'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:15:in `install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/cli.rb:257:in `install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/vendor/thor/command.rb:27:in `run'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/vendor/thor/invocation.rb:120:in `invoke_command'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/vendor/thor.rb:363:in `dispatch'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/vendor/thor/base.rb:438:in `start'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/cli.rb:10:in `start'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/bin/bundle:22:in `block in <top (required)>'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/friendly_errors.rb:5:in `with_friendly_errors'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/bin/bundle:22:in `<top (required)>'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247@global/bin/bundle:23:in `load'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247@global/bin/bundle:23:in `<main>'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
+I, [2014-06-17T15:01:56.782087 #5807]  INFO -- : 0:  rake (10.3.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/rake-10.3.1.gemspec
+I, [2014-06-17T15:01:56.782589 #5807]  INFO -- : 0:  i18n (0.6.9) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/i18n-0.6.9.gemspec
+I, [2014-06-17T15:01:56.782883 #5807]  INFO -- : 0:  json (1.8.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/json-1.8.1.gemspec
+I, [2014-06-17T15:01:56.783160 #5807]  INFO -- : 0:  minitest (5.3.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/minitest-5.3.3.gemspec
+I, [2014-06-17T15:01:56.783439 #5807]  INFO -- : 0:  thread_safe (0.3.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/thread_safe-0.3.3.gemspec
+I, [2014-06-17T15:01:56.783715 #5807]  INFO -- : 0:  tzinfo (1.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/tzinfo-1.1.0.gemspec
+I, [2014-06-17T15:01:56.783997 #5807]  INFO -- : 0:  activesupport (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/activesupport-4.1.0.gemspec
+I, [2014-06-17T15:01:56.784269 #5807]  INFO -- : 0:  builder (3.2.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/builder-3.2.2.gemspec
+I, [2014-06-17T15:01:56.784533 #5807]  INFO -- : 0:  erubis (2.7.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/erubis-2.7.0.gemspec
+I, [2014-06-17T15:01:56.784791 #5807]  INFO -- : 0:  actionview (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/actionview-4.1.0.gemspec
+I, [2014-06-17T15:01:56.785063 #5807]  INFO -- : 0:  rack (1.5.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/rack-1.5.2.gemspec
+I, [2014-06-17T15:01:56.785331 #5807]  INFO -- : 0:  rack-test (0.6.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/rack-test-0.6.2.gemspec
+I, [2014-06-17T15:01:56.785602 #5807]  INFO -- : 0:  actionpack (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/actionpack-4.1.0.gemspec
+I, [2014-06-17T15:01:56.785871 #5807]  INFO -- : 0:  mime-types (1.25.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/mime-types-1.25.1.gemspec
+I, [2014-06-17T15:01:56.786134 #5807]  INFO -- : 0:  polyglot (0.3.4) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/polyglot-0.3.4.gemspec
+I, [2014-06-17T15:01:56.786404 #5807]  INFO -- : 0:  treetop (1.4.15) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/treetop-1.4.15.gemspec
+I, [2014-06-17T15:01:56.786671 #5807]  INFO -- : 0:  mail (2.5.4) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/mail-2.5.4.gemspec
+I, [2014-06-17T15:01:56.786941 #5807]  INFO -- : 0:  actionmailer (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/actionmailer-4.1.0.gemspec
+I, [2014-06-17T15:01:56.787217 #5807]  INFO -- : 0:  activemodel (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/activemodel-4.1.0.gemspec
+I, [2014-06-17T15:01:56.787491 #5807]  INFO -- : 0:  arel (5.0.1.20140414130214) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/arel-5.0.1.20140414130214.gemspec
+I, [2014-06-17T15:01:56.787788 #5807]  INFO -- : 0:  activerecord (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/activerecord-4.1.0.gemspec
+I, [2014-06-17T15:01:56.788057 #5807]  INFO -- : 0:  acts-as-taggable-on (3.1.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/acts-as-taggable-on-3.1.1.gemspec
+I, [2014-06-17T15:01:56.788316 #5807]  INFO -- : 0:  acts_as_votable (0.8.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/acts_as_votable-0.8.0.gemspec
+I, [2014-06-17T15:01:56.788572 #5807]  INFO -- : 0:  bcrypt (3.1.7) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bcrypt-3.1.7.gemspec
+I, [2014-06-17T15:01:56.788837 #5807]  INFO -- : 0:  bcrypt-ruby (3.1.5) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bcrypt-ruby-3.1.5.gemspec
+I, [2014-06-17T15:01:56.789110 #5807]  INFO -- : 0:  sass (3.2.18) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/sass-3.2.18.gemspec
+I, [2014-06-17T15:01:56.789376 #5807]  INFO -- : 0:  bootstrap-sass (3.0.3.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bootstrap-sass-3.0.3.0.gemspec
+I, [2014-06-17T15:01:56.789639 #5807]  INFO -- : 0:  will_paginate (3.0.5) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/will_paginate-3.0.5.gemspec
+I, [2014-06-17T15:01:56.789901 #5807]  INFO -- : 0:  bootstrap-will_paginate (0.0.9) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bootstrap-will_paginate-0.0.9.gemspec
+I, [2014-06-17T15:01:56.790156 #5807]  INFO -- : 0:  bundler (1.5.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/bundler-1.5.0.gemspec
+I, [2014-06-17T15:01:56.790412 #5807]  INFO -- : 0:  cancan (1.6.10) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/cancan-1.6.10.gemspec
+I, [2014-06-17T15:01:56.790673 #5807]  INFO -- : 0:  net-ssh (2.9.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/net-ssh-2.9.0.gemspec
+I, [2014-06-17T15:01:56.790933 #5807]  INFO -- : 0:  net-scp (1.2.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/net-scp-1.2.1.gemspec
+I, [2014-06-17T15:01:56.791189 #5807]  INFO -- : 0:  tins (1.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/tins-1.1.0.gemspec
+I, [2014-06-17T15:01:56.791448 #5807]  INFO -- : 0:  term-ansicolor (1.3.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/term-ansicolor-1.3.0.gemspec
+I, [2014-06-17T15:01:56.791701 #5807]  INFO -- : 0:  sshkit (1.4.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/sshkit-1.4.0.gemspec
+I, [2014-06-17T15:01:56.791958 #5807]  INFO -- : 0:  capistrano (3.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-3.1.0.gemspec
+I, [2014-06-17T15:01:56.792213 #5807]  INFO -- : 0:  capistrano-bundler (1.1.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-bundler-1.1.2.gemspec
+I, [2014-06-17T15:01:56.792468 #5807]  INFO -- : 0:  capistrano-rails (1.1.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-rails-1.1.1.gemspec
+I, [2014-06-17T15:01:56.792724 #5807]  INFO -- : 0:  capistrano-rvm (0.1.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-rvm-0.1.1.gemspec
+I, [2014-06-17T15:01:56.792980 #5807]  INFO -- : 0:  capistrano-safe-deploy-to (1.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-safe-deploy-to-1.1.0.gemspec
+I, [2014-06-17T15:01:56.793236 #5807]  INFO -- : 0:  capistrano-unicorn-nginx (2.0.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/capistrano-unicorn-nginx-2.0.0.gemspec
+I, [2014-06-17T15:01:56.793492 #5807]  INFO -- : 0:  climate_control (0.0.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/climate_control-0.0.3.gemspec
+I, [2014-06-17T15:01:56.793751 #5807]  INFO -- : 0:  cocaine (0.5.4) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/cocaine-0.5.4.gemspec
+I, [2014-06-17T15:01:56.794016 #5807]  INFO -- : 0:  coffee-script-source (1.7.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/coffee-script-source-1.7.0.gemspec
+I, [2014-06-17T15:01:56.794292 #5807]  INFO -- : 0:  execjs (2.0.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/execjs-2.0.2.gemspec
+I, [2014-06-17T15:01:56.794548 #5807]  INFO -- : 0:  coffee-script (2.2.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/coffee-script-2.2.0.gemspec
+I, [2014-06-17T15:01:56.794807 #5807]  INFO -- : 0:  thor (0.19.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/thor-0.19.1.gemspec
+I, [2014-06-17T15:01:56.795081 #5807]  INFO -- : 0:  railties (4.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/railties-4.1.0.gemspec
+I, [2014-06-17T15:01:56.795344 #5807]  INFO -- : 0:  coffee-rails (4.0.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/coffee-rails-4.0.1.gemspec
+I, [2014-06-17T15:01:56.795605 #5807]  INFO -- : 0:  orm_adapter (0.5.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/orm_adapter-0.5.0.gemspec
+I, [2014-06-17T15:01:56.795865 #5807]  INFO -- : 0:  warden (1.2.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/warden-1.2.3.gemspec
+I, [2014-06-17T15:01:56.796131 #5807]  INFO -- : 0:  devise (3.2.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/devise-3.2.2.gemspec
+I, [2014-06-17T15:01:56.796385 #5807]  INFO -- : 0:  font-awesome-rails (4.0.3.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/font-awesome-rails-4.0.3.1.gemspec
+I, [2014-06-17T15:01:56.796639 #5807]  INFO -- : 0:  tilt (1.4.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/tilt-1.4.1.gemspec
+I, [2014-06-17T15:01:56.796899 #5807]  INFO -- : 0:  haml (4.0.5) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/haml-4.0.5.gemspec
+I, [2014-06-17T15:01:56.797156 #5807]  INFO -- : 0:  hike (1.2.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/hike-1.2.3.gemspec
+I, [2014-06-17T15:01:56.797430 #5807]  INFO -- : 0:  multi_json (1.9.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/multi_json-1.9.3.gemspec
+I, [2014-06-17T15:01:56.797699 #5807]  INFO -- : 0:  jbuilder (1.5.3) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/jbuilder-1.5.3.gemspec
+I, [2014-06-17T15:01:56.797966 #5807]  INFO -- : 0:  jquery-rails (3.1.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/jquery-rails-3.1.0.gemspec
+I, [2014-06-17T15:01:56.798223 #5807]  INFO -- : 0:  jquery-ui-rails (4.2.0) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/jquery-ui-rails-4.2.0.gemspec
+I, [2014-06-17T15:01:56.798483 #5807]  INFO -- : 0:  kaminari (0.15.1) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/kaminari-0.15.1.gemspec
+I, [2014-06-17T15:01:56.798740 #5807]  INFO -- : 0:  kgio (2.9.2) from /Users/lifeng/.rvm/gems/ruby-2.0.0-p247/specifications/kgio-2.9.2.gemspec
+E, [2014-06-17T15:02:12.284477 #5807] ERROR -- : Gem::Installer::ExtensionBuildError: ERROR: Failed to build gem native extension.
+
+    /Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/bin/ruby extconf.rb 
+creating Makefile
+Compiling v8 for x64
+Using python 2.7.6
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer//usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/c++/4.2.1
+Unable to find a compiler officially supported by v8.
+It is recommended to use GCC v4.4 or higher
+Using compiler: g++
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer//usr --with-gxx-include-dir=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/c++/4.2.1
+Unable to find a compiler officially supported by v8.
+It is recommended to use GCC v4.4 or higher
+../src/cached-powers.cc:136:18: error: unused variable 'kCachedPowersLength' [-Werror,-Wunused-const-variable]
+static const int kCachedPowersLength = ARRAY_SIZE(kCachedPowers);
+                 ^
+1 error generated.
+make[1]: *** [/Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/cached-powers.o] Error 1
+make: *** [x64.release] Error 2
+/Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/ext/libv8/location.rb:36:in `block in verify_installation!': libv8 did not install properly, expected binary v8 archive '/Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/tools/gyp/libv8_base.a'to exist, but it was not found (Libv8::Location::Vendor::ArchiveNotFound)
+	from /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/ext/libv8/location.rb:35:in `each'
+	from /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/ext/libv8/location.rb:35:in `verify_installation!'
+	from /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/ext/libv8/location.rb:26:in `install!'
+	from extconf.rb:7:in `<main>'
+GYP_GENERATORS=make \
+	build/gyp/gyp --generator-output="out" build/all.gyp \
+	              -Ibuild/standalone.gypi --depth=. \
+	              -Dv8_target_arch=x64 \
+	              -S.x64  -Dv8_enable_backtrace=1 -Dv8_can_use_vfp2_instructions=true -Darm_fpu=vfpv2 -Dv8_can_use_vfp3_instructions=true -Darm_fpu=vfpv3
+  CXX(target) /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/allocation.o
+  CXX(target) /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/atomicops_internals_x86_gcc.o
+  CXX(target) /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/bignum.o
+  CXX(target) /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/bignum-dtoa.o
+  CXX(target) /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/vendor/v8/out/x64.release/obj.target/preparser_lib/src/cached-powers.o
+
+
+Gem files will remain installed in /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3 for inspection.
+Results logged to /Users/lifeng/.bundler/tmp/5807/gems/libv8-3.16.14.3/ext/libv8/gem_make.out
+
+/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:77:in `run'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/ext_conf_builder.rb:39:in `block in build'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/tempfile.rb:324:in `open'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/ext_conf_builder.rb:19:in `build'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:148:in `block (2 levels) in build_extension'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:147:in `chdir'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:147:in `block in build_extension'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:146:in `synchronize'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:146:in `build_extension'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:180:in `block in build_extensions'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:177:in `each'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/ext/builder.rb:177:in `build_extensions'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/installer.rb:667:in `build_extensions'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/site_ruby/2.0.0/rubygems/installer.rb:225:in `install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:101:in `block in install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:118:in `preserve_paths'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/source/rubygems.rb:94:in `install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:111:in `block in install_gem_from_spec'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/rubygems_integration.rb:150:in `with_build_args'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:110:in `install_gem_from_spec'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:295:in `block in install_sequentially'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/forwardable.rb:171:in `each'  \n/Users/lifeng/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/forwardable.rb:171:in `each'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:294:in `install_sequentially'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:97:in `run'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/installer.rb:15:in `install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/cli.rb:257:in `install'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/vendor/thor/command.rb:27:in `run'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/vendor/thor/invocation.rb:120:in `invoke_command'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/vendor/thor.rb:363:in `dispatch'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/vendor/thor/base.rb:438:in `start'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/cli.rb:10:in `start'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/bin/bundle:22:in `block in <top (required)>'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/lib/bundler/friendly_errors.rb:5:in `with_friendly_errors'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/gems/bundler-1.5.0/bin/bundle:22:in `<top (required)>'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247@global/bin/bundle:23:in `load'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247@global/bin/bundle:23:in `<main>'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'  \n/Users/lifeng/.rvm/gems/ruby-2.0.0-p247/bin/ruby_noexec_wrapper:14:in `<main>'
