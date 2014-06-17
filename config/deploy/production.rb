@@ -46,12 +46,15 @@ set :unicorn_env, :production
 
 
 
-
-set :nginx_config_path, "/etc/nginx/sites-available/"
-set :nginx_server_name, '115.28.188.236'
-set :nginx_pid, "/var/run/nginx.pid"
+set :nginx_use_ssl, true
 set :nginx_ssl_certificate_local_path, "/alidata1/ssh/server.crt"
 set :nginx_ssl_certificate_key_local_path, "/alidata1/ssh/api.bz_nopass.key"
+
+set :nginx_config_path, "/etc/nginx/sites-available/"
+# set :nginx_server_name, '115.28.188.236'
+set :nginx_server_name, 'yuenvshen.com'
+set :nginx_pid, "/var/run/nginx.pid"
+
 
 
 
