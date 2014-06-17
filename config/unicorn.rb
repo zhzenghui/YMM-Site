@@ -16,7 +16,7 @@ stdout_path "#{Rails.root}/log/unicorn.log"
 
 listen 5000, :tcp_nopush => false
 
-listen "/tmp/unicorn.Yue-Site.sock"
+listen "/tmp/unicorn.Yue-Site_#{rails_env}.sock"
 worker_processes 1
 timeout 120
 
