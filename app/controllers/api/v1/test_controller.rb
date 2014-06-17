@@ -5,7 +5,7 @@ class Api::V1::TestController < ApplicationController
 
 	def index
 	
-		render :status => :unprocessable_entity,
+		render :status => 200,
 						:json => { :success => true,
 										 :info => "test",
 										 :data => "test"}

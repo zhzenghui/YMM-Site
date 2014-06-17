@@ -52,6 +52,7 @@ Yue::Application.routes.draw do
 
         
         get "test" => 'test#index', :as => 'test'
+        post "test" => 'test#index', :as => 'test'
 
 
       end
