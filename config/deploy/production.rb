@@ -52,7 +52,7 @@ set :nginx_ssl_certificate_key_local_path, "/etc/ssl/private/yuenvshen.com.key"
 
 set :nginx_config_path, "/etc/nginx/sites-available/"
 # set :nginx_server_name, '115.28.188.236'
-set :nginx_server_name, 'yuenvshen.com'
+set :nginx_server_name, 'yuenvshen.com www.yuenvshen.com'
 set :nginx_pid, "/var/run/nginx.pid"
 
 
