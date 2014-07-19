@@ -25,9 +25,9 @@ Yue::Application.routes.draw do
     resources :comments
   end
 
-  match '/help',    to: 'static_pages#help',    via: 'get'
-  match '/about',   to: 'static_pages#about',   via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/help',    to: 'home#help',    via: 'get'
+  match '/about',   to: 'home#about',   via: 'get'
+  match '/contact', to: 'home#contact', via: 'get'
 
 
   

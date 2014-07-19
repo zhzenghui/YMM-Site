@@ -23,6 +23,17 @@ class HomeController < ApplicationController
 
   def avatar
     @user = current_user
+
   end
 
+  def about
+    
+  end
+  
+  def help
+  end
+  
+  
+  def contact
+  end
 end
