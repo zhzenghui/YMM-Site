@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602160728) do
+ActiveRecord::Schema.define(version: 20140702153010) do
+
+  create_table "a_comments", force: true do |t|
+    t.string   "content"
+    t.integer  "status"
+    t.integer  "album_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "a_comments", ["album_id"], name: "index_a_comments_on_album_id"
 
   create_table "albums", force: true do |t|
     t.string   "title"
@@ -82,6 +92,13 @@ ActiveRecord::Schema.define(version: 20140602160728) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "relationships", force: true do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", force: true do |t|

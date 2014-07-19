@@ -7,6 +7,8 @@ class AlbumsController < ApplicationController
     @albums = Album.all
   end
 
+
+
   # GET /albums/1
   # GET /albums/1.json
   def show

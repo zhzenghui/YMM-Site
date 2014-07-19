@@ -1,34 +1,20 @@
-<h1>Listing posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Text</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @posts.each do |post| %>
-      <tr>
 
-        <td><%= image_tag post.avatar.url(:thumb) %></td>
 
-        <td><%= post.title %></td>
-        <td><%= post.text %></td>
-        <td><%= post.user_id %></td>
+      <div class="row featurette">
+        <div class="col-md-1">
+                 <%= image_tag post.avatar.url(:thumb), class: "featurette-image img-responsive" %> 
+        </div>
+        <div class="col-md-4">
+          <h2 class="featurette-heading"><%= post.title %></h2>
+          <p class="lead"><%= post.text %></p>
+        </div>
+      </div>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+          <% end %>
 <br>
-
 <%= link_to 'New Post', new_post_path %>

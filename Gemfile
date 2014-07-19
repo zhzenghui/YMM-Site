@@ -6,10 +6,12 @@ gem 'rails', '4.1.0'
 gem 'bootstrap-sass', '3.0.3.0'
 gem 'bootstrap-will_paginate', '0.0.9'
 
+
 gem 'devise', '3.2.2'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# 表单
+gem 'simple_form'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -90,6 +92,8 @@ end
 
 group :development do
   gem 'logger'
+# Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 
   gem 'capistrano', '~> 3.1.0'
   gem 'capistrano-rails', '~> 1.1'
