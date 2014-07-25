@@ -60,10 +60,13 @@ class RelationshipsController < ApplicationController
   def index
     @user = User.all
 
-    @followers = current_user.followers.paginate(page: params[:page])
-
-
-    @relationships = Relationship.all
+    if current_user
+      @followers = current_user.followers.paginate(page: params[:page])
+      @relationships = Relationship.all  
+    else 
+      redirect_to new_user_session_path
+    end
+    
   end
 
  # def create
