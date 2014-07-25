@@ -4,6 +4,24 @@
 
 zh-CN:
   devise:
+    info:
+      sign_in: "登录"
+      sign_out: "登出"
+      sign_up_now: "现在注册"
+      sign_up: "注册"
+      forgot_password: "忘记密码?"
+      reset_password: "重置密码"
+      email: "邮箱"
+      name: "名字"
+      password: "密码"
+      remember_me: "记住密码"
+      password_confirmation: "确认密码"
+      create_my_account: "创建账户"
+      home: "主页"
+      product: "产品"
+      help: "帮助"
+      didnt_receive_confirmation_instructions: "没有收到确认代码"
+      didnt_receive_unlock_instructions: "没有接收到解锁代码"
     confirmations:
       confirmed: "您的帐号已经确认，您现在已登录。"
       send_instructions: "几分钟后，您将收到确认帐号的电子邮件。"
