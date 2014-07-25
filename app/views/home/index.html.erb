@@ -1,48 +1,59 @@
      
 		 
 		 
-		          <% if signed_in? %>
+<% if signed_in? %>
 	   
-<h1>最新动态</h1>
+	<h1>最新动态</h1>
 
-      <%= render 'shared/feed' %>
-<h1>关注我的</h1>
+	      <%= render 'shared/feed' %>
+	<h1>关注我的</h1>
 
-<br>
-<br>
+	<br>
+	<br>
 
-<%  @followers.each do |user|  %>
-      <%= user.id %>
-      <%= user.name %>
-      
+	<%  @followers.each do |user|  %>
+	      <%= user.id %>
+	      <%= user.name %>
+	      
+	<% end %>
+
+	<br>
+	<br>
+
+
+	<h1>我关注的</h1>
+
+	<br>
+	<br>
+
+	<%  @following.each do |user|  %>
+	      <%= user.id %>
+	      <%= user.name %>
+	      
+	<% end %>
+
+	<br>
+	<br>
+
+<% else %>
+
+<div class="container-fluid">
+      <div class="row">
+       
+        <div>
+          <h1 class="page-header">Dashboard</h1>
+          <div class="row placeholders">
+   			 <% @posts.each do |post| %>
+                <div class="col-xs-6 col-sm-3 placeholder">
+                    <%= image_tag post.avatar.url(:medium), style:"width: 300; height: 300;", class: "featurette-image img-responsive img-thumbnail" %> 
+              		 <h4><%= post.title %></h4>
+					<span class="text-muted"><%= post.text %></span>         			   
+              </div>
+	 		 <% end %>
+
+         </div>
+	</div>
+</div>
 <% end %>
 
-<br>
-<br>
 
-
-<h1>我关注的</h1>
-
-<br>
-<br>
-
-<%  @following.each do |user|  %>
-      <%= user.id %>
-      <%= user.name %>
-      
-<% end %>
-
-<br>
-<br>
-
-<% end %>
-
-			 
-	<li><%= link_to "我的post", posts_path %></li>
-			 
-
-
-	<li><%= link_to "我的album", albums_path %></li>
-
-
-	<li><%= link_to "我的photo", photos_path %></li>

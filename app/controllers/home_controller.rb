@@ -9,6 +9,8 @@ class HomeController < ApplicationController
       @following = current_user.following.paginate(page: params[:page])
     end
 
+    @posts = Post.all  
+
   end
 
   def create 
