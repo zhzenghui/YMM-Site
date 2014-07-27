@@ -37,7 +37,6 @@
 
 <% else %>
 
-<div class="container-fluid">
       <div class="row">
        
         <div>
@@ -45,7 +44,7 @@
           <div class="row placeholders">
    			 <% @posts.each do |post| %>
                 <div class="col-xs-6 col-sm-3 placeholder">
-                    <%= image_tag post.avatar.url(:medium), style:"width: 300; height: 300;", class: "featurette-image img-responsive img-thumbnail" %> 
+                    <%= image_tag post.avatar.url(:medium), style:"width: 200; height: 200;", class: "featurette-image img-responsive img-thumbnail" %> 
               		 <h4><%= post.title %></h4>
 					<span class="text-muted"><%= post.text %></span>         			   
               </div>
@@ -53,7 +52,6 @@
 
          </div>
 	</div>
-</div>
 <% end %>
 
 
