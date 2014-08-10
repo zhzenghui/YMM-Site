@@ -28,6 +28,8 @@ Yue::Application.routes.draw do
   match '/help',    to: 'home#help',    via: 'get'
   match '/about',   to: 'home#about',   via: 'get'
   match '/contact', to: 'home#contact', via: 'get'
+  match '/about_me',   to: 'home#about_me',   via: 'get'
+
 
 
   
