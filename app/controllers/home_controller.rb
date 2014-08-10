@@ -1,4 +1,10 @@
 class HomeController < ApplicationController
+  
+  # caches_page :about
+
+
+
+  
   def index 
     logger.info(current_user)
 
@@ -29,6 +35,10 @@ class HomeController < ApplicationController
   end
 
   def about
+    
+  end
+
+  def about_me
     
   end
   
