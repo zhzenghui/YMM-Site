@@ -40,11 +40,17 @@
       <div class="row">
        
         <div>
+
+
           <h1 class="page-header">Dashboard</h1>
+
           <div class="row placeholders">
    			 <% @posts.each do |post| %>
                 <div class="col-xs-6 col-sm-3 placeholder">
-                    <%= image_tag post.avatar.url(:medium), style:"width: 200; height: 200;", class: "featurette-image img-responsive img-thumbnail" %> 
+                <%= link_to post  do %>
+                                  <%= image_tag post.avatar.url(:medium), style:"width: 200; height: 200;", class: "featurette-image img-responsive img-thumbnail" %> 
+					
+				<% end -%>
               		 <h4><%= post.title %></h4>
 					<span class="text-muted"><%= post.text %></span>         			   
               </div>
