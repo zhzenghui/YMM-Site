@@ -49,10 +49,18 @@
                 <div class="col-xs-6 col-sm-3 placeholder">
                 <%= link_to post  do %>
                                   <%= image_tag post.avatar.url(:medium), style:"width: 200; height: 200;", class: "featurette-image img-responsive img-thumbnail" %> 
-					
 				<% end -%>
-              		 <h4><%= post.title %></h4>
-					<span class="text-muted"><%= post.text %></span>         			   
+					
+					<ul class="unstyle">
+						<li > 
+						    <span> <strong><%= post.title %></strong>  @<%= link_to post.user.name , posts_path  %></span>
+
+						</li>
+						<li>
+							<span class="text-muted"><%= post.text %></span>
+						</li>
+					</ul>
+
               </div>
 	 		 <% end %>
 
