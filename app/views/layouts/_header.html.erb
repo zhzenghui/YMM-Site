@@ -8,40 +8,30 @@
             <span class="icon-bar"></span>
           </button>
 	        <ul class="nav navbar-nav navbar">
-	          <li><%= link_to image_tag("logo-18.png", alt: "Rails"), 'http://rubyonrails.org/'%>  </li>
+	          <li><%= link_to image_tag("logo-18.png", alt: "Rails"), ''%>  </li>
 	          <li>	<%= link_to t(:site_name), root_path , class:'navbar-brand' %></li>
      
 	        </ul>
         </div>
-<!-- 
 
-	<li><%= link_to "我的post", posts_path %></li>
-			 
-
-
-	<li><%= link_to "我的ablum", albums_path %></li>
-
-
-	<li><%= link_to "我的photo", photos_path %></li> -->
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-	          <li class="active" ><%= link_to t(:home), root_path %></li>
+	          <li><%= link_to t(:home), root_path %></li>
 	          <li><%= link_to t(:post), posts_path %></li>
-	          <li><%= link_to t(:albums), albums_path %></li>
+<!-- 	          <li><%= link_to t(:albums), albums_path %></li>
 	          <li><%= link_to t(:photo), photos_path %></li>
 	          <li><%= link_to t(:in_app), in_app_types_path %></li>
 
-	          <li><%= link_to t(:relationships), relationships_path %></li>
+	          <li><%= link_to t(:relationships), relationships_path %></li> -->
 
           </ul>
           <ul class="nav navbar-nav navbar-right">
 
 	          <% if signed_in? %>
 
-	            <li><%= link_to "所有用户", root_path %></li>
 	            <li id="fat-menu" class="dropdown">
 	              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-	                <%= current_user.name  %> <%= current_user.name %> <b class="caret"></b>
+	                <%= current_user.name  %><b class="caret"></b>
 	              </a>
 	              <ul class="dropdown-menu">
 	                <li><%= link_to "我的信息", root_path %></li>
@@ -55,7 +45,7 @@
 	            <li class="dropdown">
             </li>
 	          <% else %>
-	            <li><%= link_to t(:sign_in), new_user_session_path %></li>
+	            <li><%= link_to t(:sign_in),   new_user_session_path %></li>
 	          <% end %>
 
           </ul>
