@@ -50,16 +50,18 @@
                 <%= link_to post  do %>
                                   <%= image_tag post.avatar.url(:medium), style:"width: 200; height: 200;", class: "featurette-image img-responsive img-thumbnail" %> 
 				<% end -%>
-					
-					<ul class="unstyle">
+					<p class="lead">
+					<ul class="list-unstyled">
 						<li > 
-						    <span> <strong><%= post.title %></strong>  @<%= link_to post.user.name , posts_path  %></span>
+						    <span> <h3>  <%= link_to post.title, post %></h3> @<%= link_to post.user.name , posts_path  %></span>
 
 						</li>
 						<li>
 							<span class="text-muted"><%= post.text %></span>
 						</li>
 					</ul>
+
+                	</p>
 
               </div>
 	 		 <% end %>

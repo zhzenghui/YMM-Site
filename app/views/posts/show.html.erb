@@ -1,22 +1,27 @@
- <%= image_tag @post.avatar.url %>
 
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
- 
-<h2>Comments</h2>
+ <%= image_tag @post.avatar.url(:medium), class: "featurette-image img-responsive" %> 
+
+<h2>
+  <%= link_to @post.title, @post%>
+</h2>
+
+<p><span class="glyphicon glyphicon-time"></span> <%= @post.updated_at %></p>
+
+
+<p><%= @post.text %></p>
+<hr>
+
+<!-- 
+<%= link_to 'Edit Post', edit_post_path(@post) %> |
+<%= link_to 'Back to Posts', posts_path %>
+ -->
+<!--<h 2>Comments</h2>
 <%= render @post.comments %>
- 
-<h2>Add a comment:</h2>
+  -->
+<!-- <h2>Add a comment:</h2>
 <%= render "comments/form" %>
-
+ -->
 
 
     <div id="disqus_thread"></div>
@@ -35,5 +40,3 @@
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     
  
-<%= link_to 'Edit Post', edit_post_path(@post) %> |
-<%= link_to 'Back to Posts', posts_path %>
