@@ -34,6 +34,9 @@ gem 'paper_trail', '~> 3.0.1'
 # message
 
 
+# 七牛
+gem 'qiniu', '~> 6.2.1'
+
 #  JavaScript runtime.
 gem 'therubyracer'
 

@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
   validates :title, :presence => true, length: { minimum: 5 },
   										:uniqueness => true
   validates :text, :presence => true
-	
+	validates :user, :presence => true
   
   scope :tag_with, lambda{|tag_name| joins(:tags).where("tags.name = ?", tag_name)}
   scope :latter_than, lambda{|time| joins(:taggings).where("taggings.created_at > ?", time)}
