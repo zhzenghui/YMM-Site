@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 zh-CN:
-  site_name: "Yue"
+  site_name: "自由世界"
   sign_in: "登录"
   sign_out: "登出"
   sign_up_now: "现在注册"
