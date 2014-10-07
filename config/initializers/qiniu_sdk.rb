@@ -9,7 +9,6 @@ if File.exists?(path)
     qiniu_object = qiniu["qiniu"] 
     access_key = qiniu_object["access_key"]
     secret_key = qiniu_object["secret_key"]
-    logger.info(access_key)
 end
 
 
