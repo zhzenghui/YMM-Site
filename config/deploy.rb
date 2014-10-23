@@ -71,7 +71,14 @@ namespace :deploy do
     end
   end
 
-  
+  task :add_default_hooks do
+    after 'deploy:starting', 'sidekiq:quiet'
+    after 'deploy:updated', 'sidekiq:stop'
+    after 'deploy:reverted', 'sidekiq:stop'
+    after 'deploy:published', 'sidekiq:start'
+  end
+
+
 
 
   after :finishing, "deploy:cleanup"
