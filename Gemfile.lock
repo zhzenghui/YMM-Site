@@ -67,9 +67,14 @@ GEM
       sshkit (~> 1.2)
     capistrano-safe-deploy-to (1.1.0)
       capistrano (>= 3.0)
+    capistrano-sidekiq (0.3.8)
+      capistrano
+      sidekiq
     capistrano-unicorn-nginx (2.0.0)
       capistrano (>= 3.1)
       sshkit (>= 1.2.0)
+    celluloid (0.15.2)
+      timers (~> 1.1.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -81,6 +86,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    connection_pool (2.0.0)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -175,6 +181,25 @@ GEM
     rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.1.0)
+    redis-actionpack (4.0.0)
+      actionpack (~> 4)
+      redis-rack (~> 1.5.0)
+      redis-store (~> 1.1.0)
+    redis-activesupport (4.0.0)
+      activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-namespace (1.5.1)
+      redis (~> 3.0, >= 3.0.4)
+    redis-rack (1.5.0)
+      rack (~> 1.5)
+      redis-store (~> 1.1.0)
+    redis-rails (4.0.0)
+      redis-actionpack (~> 4)
+      redis-activesupport (~> 4)
+      redis-store (~> 1.1.0)
+    redis-store (1.1.4)
+      redis (>= 2.2)
     ref (1.0.5)
     remotipart (1.2.1)
     rest-client (1.7.2)
@@ -191,6 +216,12 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    sidekiq (3.2.6)
+      celluloid (= 0.15.2)
+      connection_pool (>= 2.0.0)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -216,6 +247,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.3)
     tilt (1.4.1)
+    timers (1.1.0)
     tins (1.1.0)
     treetop (1.4.15)
       polyglot
@@ -249,6 +281,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.1)
   capistrano-rvm (~> 0.1.0)
   capistrano-safe-deploy-to (~> 1.1)
+  capistrano-sidekiq
   capistrano-unicorn-nginx (~> 2.0)
   cocaine (~> 0.5.3)
   coffee-rails (~> 4.0.0)
@@ -264,8 +297,10 @@ DEPENDENCIES
   qiniu (~> 6.2.1)
   rails (= 4.1.0)
   rails_admin
+  redis-rails
   sass-rails (~> 4.0.0)
   sdoc
+  sidekiq
   simple_form
   sqlite3
   therubyracer

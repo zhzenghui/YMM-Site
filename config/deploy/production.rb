@@ -58,8 +58,14 @@ set :nginx_pid, "/var/run/nginx.pid"
 
 
 
+set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
 
-
+task :add_default_hooks do
+  after 'deploy:starting', 'sidekiq:quiet'
+  after 'deploy:updated', 'sidekiq:stop'
+  after 'deploy:reverted', 'sidekiq:stop'
+  after 'deploy:published', 'sidekiq:start'
+end
 
 
 

@@ -6,6 +6,9 @@ class HomeController < ApplicationController
 
   
   def index
+
+
+    HardWorker.perform_async('bob', 5)
     if current_user
       @feed_items = current_user.feed.paginate(:page => params[:page])
       @followers = current_user.followers.paginate(page: params[:page])

@@ -33,6 +33,14 @@ gem 'paper_trail', '~> 3.0.1'
 
 # message
 
+# redis 
+gem 'redis-rails'
+
+# 消息队列系统
+gem 'sidekiq'
+
+gem 'capistrano-sidekiq'
+
 
 # 七牛
 gem 'qiniu', '~> 6.2.1'
@@ -105,4 +113,5 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-safe-deploy-to', '~> 1.1'
   gem 'capistrano-unicorn-nginx', '~> 2.0'  
+  gem 'capistrano-sidekiq'
 end 
