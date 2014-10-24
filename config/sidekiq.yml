@@ -9,7 +9,7 @@
   - [c, 2]
   - [default, 3]
 
- development:
+development:
   :concurrency: 5
 staging:
   :concurrency: 10

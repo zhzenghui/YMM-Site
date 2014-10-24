@@ -58,10 +58,5 @@ set :nginx_pid, "/var/run/nginx.pid"
 
 
 
-set :sidekiq_config, "#{current_path}/config/sidekiq.yml"
-
-
-
-
 
 
