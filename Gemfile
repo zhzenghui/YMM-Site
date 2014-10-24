@@ -33,6 +33,8 @@ gem 'paper_trail', '~> 3.0.1'
 
 # message
 
+gem "rack-cache"
+
 # redis 
 gem 'redis-rails'
 
