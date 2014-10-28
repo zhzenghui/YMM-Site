@@ -1,9 +1,28 @@
 
+<h1 class="page-header">
+    Yue 之博客
+    <small>该站最新的变化和里程碑事件。</small>
+</h1>
 
-    <% @posts.each do |post| %>
+<% @posts.each do |post| %>
 
 
-      <div class="row featurette">
+<h2>
+  <%= link_to post.title, post, class:"color:#008ec4" %>
+</h2>
+
+<p><span class="glyphicon glyphicon-time"></span> <%= post.updated_at %></p>
+
+
+<hr>
+ <%= image_tag post.avatar.url(:medium), class: "featurette-image img-responsive" %> 
+<hr>
+
+<p><%= post.text %></p>
+<%= link_to '查看更多', post, class:"btn btn-primary btn-lg active" %>
+
+               <hr>
+      <!-- <div class="row featurette">
         <div class="col-md-1">
                  <%= image_tag post.avatar.url(:thumb), class: "featurette-image img-responsive" %> 
         </div>
@@ -15,6 +34,16 @@
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
+ -->
+<% end %>
+
 <br>
-<%= link_to 'New Post', new_post_path %>
+
+<ul class="list-unstyled">
+  <li>
+    <%= will_paginate(@posts, :renderer => WillPaginate::ActionView::LinkRenderer) %>
+  </li>
+<!--   <li>
+    <%= link_to 'New Post', new_post_path %>
+  </li> -->
+</ul>

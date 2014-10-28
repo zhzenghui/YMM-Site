@@ -71,8 +71,6 @@ namespace :deploy do
     end
   end
 
-  
-
 
   after :finishing, "deploy:cleanup"
 

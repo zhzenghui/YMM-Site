@@ -33,6 +33,19 @@ gem 'paper_trail', '~> 3.0.1'
 
 # message
 
+gem "rack-cache"
+
+# redis 
+gem 'redis-rails'
+
+# 消息队列系统
+gem 'sidekiq'
+
+gem 'capistrano-sidekiq'
+
+
+# 七牛
+gem 'qiniu', '~> 6.2.1'
 
 #  JavaScript runtime.
 gem 'therubyracer'
