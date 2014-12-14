@@ -2,13 +2,3 @@
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/zhzenghui/yue-site/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/zhzenghui/yue-site/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
-
-
-http://zhzenghui.github.io/
-
-
-
-作者：https://www.yuenvshen.com/about_me

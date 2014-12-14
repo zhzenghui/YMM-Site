@@ -41,8 +41,6 @@ gem 'redis-rails'
 # 消息队列系统
 gem 'sidekiq'
 
-gem 'capistrano-sidekiq'
-
 
 # 七牛
 gem 'qiniu', '~> 6.2.1'
@@ -61,6 +59,8 @@ gem "paperclip",  :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'cocaine', '~> 0.5.3'
 gem 'mime-types'
 
+
+gem "cancan"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -108,11 +108,7 @@ end
 group :development do
   gem 'logger'
 
+  gem 'capistrano', '2.9.0', require: false
 
-  gem 'capistrano', '~> 3.1.0'
-  gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-rvm', '~> 0.1.0'
-  gem 'capistrano-bundler', '~> 1.1.2'
-  gem 'capistrano-safe-deploy-to', '~> 1.1'
-  gem 'capistrano-unicorn-nginx', '~> 2.0'  
+
 end 
