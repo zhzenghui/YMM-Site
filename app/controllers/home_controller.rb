@@ -2,12 +2,10 @@ class HomeController < ApplicationController
   
   # caches_page :about
 
-
+  
 
   
   def index
-
-
     HardWorker.perform_async('bob', 5)
     if current_user
       @feed_items = current_user.feed.paginate(:page => params[:page])

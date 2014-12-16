@@ -11,6 +11,12 @@ Yue::Application.routes.draw do
   get "images/new"
   get "images/show"
   post "images/create"
+
+  get 'test_push' => 'push#index'
+  post 'test_push' => 'push#test_push'
+
+
+
   resources :posts
 
   devise_for :users

@@ -1,0 +1,12 @@
+<h2>Send a push notification</h2>
+<h4>through this lovely interface</h4>
+
+<%= flash[:notice] %>
+
+<%= form_tag :method => :post, :action => 'test_push' do %>
+	Message: <%= text_area_tag :message %><br>
+	Pusheen image url: <%= text_field_tag :image_url, session[:last_image_url] %><br>
+	Device token: <%= text_field_tag :device_token, session[:last_device_token] %><br>
+	Badge count: <%= text_field_tag :badge, '0' %><br>
+	<%= submit_tag 'Send Sandbox Push' %>
+<% end %>

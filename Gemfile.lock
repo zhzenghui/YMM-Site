@@ -80,6 +80,7 @@ GEM
     execjs (2.2.2)
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
+    grocer (0.6.0)
     haml (4.0.5)
       tilt
     highline (1.6.21)
@@ -263,6 +264,7 @@ DEPENDENCIES
   cocaine (~> 0.5.3)
   coffee-rails (~> 4.0.0)
   devise (= 3.2.2)
+  grocer
   jbuilder (~> 1.2)
   jquery-rails
   logger
