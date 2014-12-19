@@ -37,6 +37,13 @@ gem "rack-cache"
 
 # redis 
 gem 'redis-rails'
+gem 'hiredis', '~> 0.4.5'
+# Redis 命名空间
+gem 'redis-namespace','~> 1.5.1'
+
+# 将一些数据存放入 Redis
+gem 'redis-objects', '0.9.1'
+
 
 # 消息队列系统
 gem 'sidekiq'

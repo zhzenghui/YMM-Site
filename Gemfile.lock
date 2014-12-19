@@ -85,6 +85,7 @@ GEM
       tilt
     highline (1.6.21)
     hike (1.2.3)
+    hiredis (0.4.5)
     i18n (0.6.11)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -182,6 +183,8 @@ GEM
       redis-store (~> 1.1.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
+    redis-objects (0.9.1)
+      redis (>= 3.0.2)
     redis-rack (1.5.0)
       rack (~> 1.5)
       redis-store (~> 1.1.0)
@@ -265,6 +268,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise (= 3.2.2)
   grocer
+  hiredis (~> 0.4.5)
   jbuilder (~> 1.2)
   jquery-rails
   logger
@@ -277,6 +281,8 @@ DEPENDENCIES
   rack-cache
   rails (= 4.1.0)
   rails_admin
+  redis-namespace (~> 1.5.1)
+  redis-objects (= 0.9.1)
   redis-rails
   sass-rails (~> 4.0.0)
   sdoc
