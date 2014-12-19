@@ -20,7 +20,7 @@ defaults: &defaults
   google_custom_search_id: "016658237367474087615:WMX464284035"
   twitter_id: "ruby_china"
   gravatar_proxy: "http://gravatar.com"
-
+  post_per_page: 1
 development:
   <<: *defaults
 

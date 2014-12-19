@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
 
-  self.per_page = 2
 
   belongs_to :user
   has_many :comments
@@ -25,7 +24,7 @@ class Post < ActiveRecord::Base
 
 
 
-  WillPaginate.per_page = 5
+  
 
 
 

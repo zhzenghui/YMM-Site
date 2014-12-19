@@ -42,6 +42,9 @@ Yue::Application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+
+      get 'populer' => 'post#populer'
+
       devise_scope :user do
 
         post 'registrations' => 'registrations#create', :as => 'register'
