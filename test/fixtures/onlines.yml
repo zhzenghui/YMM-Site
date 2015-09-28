@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  cover_url: MyString
+  description: MyText
+  relation_url: MyString
+  user: MyText
+  user_count: 1
+  image_count: 1
+  zan_count: 1
+  end_day: 2014-12-24 23:57:32
+  zan_user: MyText
+  free: 1
+  essence: MyText
+  state: 1
+
+two:
+  title: MyString
+  cover_url: MyString
+  description: MyText
+  relation_url: MyString
+  user: MyText
+  user_count: 1
+  image_count: 1
+  zan_count: 1
+  end_day: 2014-12-24 23:57:32
+  zan_user: MyText
+  free: 1
+  essence: MyText
+  state: 1

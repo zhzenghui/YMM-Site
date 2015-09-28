@@ -1,3 +1,9 @@
 qiniu:
   access_key: DmSO8pbWu2N6E8Qugi1d00PudrvURT-XQymYC7tZ
   secret_key: -V1cpGFzTthTsw9iiZg-DckSyFxXYyyxjnQVxeH_
+upyun:
+  # $upyun = Upyun::Rest.new(bucket, operator, password, options, endpoint)
+  bucket: yunfile
+  operator: zhmanager
+  password: ZHZengHui!@123
+  

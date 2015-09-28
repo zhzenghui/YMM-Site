@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
 
   
   has_many :posts
+  has_many :onlines
   has_many :albums
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
@@ -26,8 +27,8 @@ class User < ActiveRecord::Base
   has_many :following, :through => :relationships, :source => :followed
 
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  # has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -79,6 +80,11 @@ class User < ActiveRecord::Base
   	 	reture true
   	 end
   	 false
+  end
+
+  def resetPassword(email)
+    u = User.find_by_email('zenghui@gmail.com')
+    u.send_reset_password_instructions
   end
    
   def reset_authentication_token!

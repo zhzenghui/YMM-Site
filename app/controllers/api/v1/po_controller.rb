@@ -1,5 +1,5 @@
 
-class Api::V1::PostController < ApplicationController
+class Api::V1::PoController < ApplicationController
 
 	require 'redis-namespace'
 
@@ -9,20 +9,20 @@ class Api::V1::PostController < ApplicationController
 	WillPaginate.per_page = 20
 
 
-	def like(likeable)
-		return false if likeable.blank?
-		return false if likeable.like_by_user?(self)
-		likeable.push(liked_user_ids: self.id)
-		likeable.inc (likes_count: 1)
-		likeable.touch
-	end 
-	def unlike(likeable)
-		return false if likeable.blank?
-		return false if likeable.like_by_user?(self)
-		likeable.pull(liked_user_ids: self.id)
-		likeable.inc (likes_count: -1)
-		likeable.touch
-	end
+	# def like(likeable)
+	# 	return false if likeable.blank?
+	# 	return false if likeable.like_by_user?(self)
+	# 	likeable.push(liked_user_ids: self.id)
+	# 	likeable.inc (likes_count: 1)
+	# 	likeable.touch
+	# end 
+	# def unlike(likeable)
+	# 	return false if likeable.blank?
+	# 	return false if likeable.like_by_user?(self)
+	# 	likeable.pull(liked_user_ids: self.id)
+	# 	likeable.inc (likes_count: -1)
+	# 	likeable.touch
+	# end
 
 	def populer
 
@@ -30,7 +30,7 @@ class Api::V1::PostController < ApplicationController
 		#  redis  将存储数据
 		#  数据 包含  post 和 post 喜欢的人 
 		@posts = Post.paginate(:page => params[:page])
-		render :status => :unprocessable_entity,
+		render :status => :200,
 						:json => { :success => 200,
 										 :info => "",
 										 :data => @posts
@@ -41,7 +41,7 @@ class Api::V1::PostController < ApplicationController
 	def index
 		@posts =  current_user.posts.paginate(:page => params[:page])
 	
-		render :status => :unprocessable_entity,
+		render :status => :200,
 						:json => { :success => true,
 										 :info => "",
 										 :data => @posts}
@@ -51,12 +51,12 @@ class Api::V1::PostController < ApplicationController
 		user=User.find_by_authentication_token(params[:auth_token])
 		if user
 			@posts =  user.posts.paginate(:page => params[:page]).order('created_at DESC')
-			render :status => :unprocessable_entity,
+			render :status => :200,
 			:json => { :success => true,
 							 :info => user,
 							 :data => @posts }
 		else 
-			render :status => :unprocessable_entity,
+			render :status => :200,
 			:json => { :success => false,
 							 :info =>"上传要求：jpg ",
 							 :data => {} }      
@@ -65,10 +65,12 @@ class Api::V1::PostController < ApplicationController
 
 	def upload
 		@image = params[:image]
-		render :status => :unprocessable_entity,
+		render :status => :200,
 					 :json => { :success => false,
 										 :info =>" @task.errors.full_messages",
 										 :data => {} }
 	end 
+
+	
 
 end

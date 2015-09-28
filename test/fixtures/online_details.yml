@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  media_url: MyString
+  frames: MyText
+  state: 1
+  free: 1
+  priview: MyText
+  auth: 1
+  auth: MyText
+  zan_count: 1
+  share_count: 1
+  onine: 
+
+two:
+  media_url: MyString
+  frames: MyText
+  state: 1
+  free: 1
+  priview: MyText
+  auth: 1
+  auth: MyText
+  zan_count: 1
+  share_count: 1
+  onine: 

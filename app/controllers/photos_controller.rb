@@ -32,7 +32,7 @@ class PhotosController < ApplicationController
         format.json { render action: 'show', status: :created, location: @photo }
       else
         format.html { render action: 'new' }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
+        format.json { render json: @photo.errors, status: :200 }
       end
     end
   end
@@ -46,7 +46,7 @@ class PhotosController < ApplicationController
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
+        format.json { render json: @photo.errors, status: :200 }
       end
     end
   end

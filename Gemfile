@@ -24,6 +24,8 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 
+# 
+gem "venice", :git => "https://github.com/zhzenghui/venice.git"
 
 # admin
 gem 'rails_admin'
@@ -35,22 +37,24 @@ gem 'paper_trail', '~> 3.0.1'
 
 gem "rack-cache"
 
-# redis 
-gem 'redis-rails'
-gem 'hiredis', '~> 0.4.5'
+gem 'redis', '~> 3.2.1'
+gem "hiredis", "~> 0.6.0"
 # Redis 命名空间
 gem 'redis-namespace','~> 1.5.1'
-
 # 将一些数据存放入 Redis
-gem 'redis-objects', '0.9.1'
+gem 'redis-objects', '1.1.0'
+
+
+gem 'dalli'
 
 
 # 消息队列系统
 gem 'sidekiq'
 
 
-# 七牛
-gem 'qiniu', '~> 6.2.1'
+# 
+gem 'upyun', :git => "https://github.com/zhzenghui/ruby-sdk"
+
 
 #  JavaScript runtime.
 gem 'therubyracer'
@@ -67,7 +71,8 @@ gem 'cocaine', '~> 0.5.3'
 gem 'mime-types'
 
 
-gem "cancan"
+gem 'cancancan', '~> 1.10'
+
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -121,7 +126,7 @@ end
 group :development do
   gem 'logger'
 
-  gem 'capistrano', '2.9.0', require: false
+  gem 'capistrano', '~> 3.4.0', require: false
 
 
 end 

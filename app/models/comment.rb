@@ -1,9 +1,8 @@
 class Comment < ActiveRecord::Base
-  belongs_to :post
-  belongs_to :album
+  belongs_to :user
+  belongs_to :online_detail
 
-  validates :body, presence: true,
-                    length: { minimum: 5 }
 
-                    
+  scope :published, -> {  where(state: 1) }
+
 end

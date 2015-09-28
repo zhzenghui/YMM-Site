@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
 	def index
 		@posts =  current_user.posts.paginate(:page => params[:page])
 	
-		render :status => :unprocessable_entity,
+		render :status => :200,
 						:json => { :success => true,
 										 :info => "",
 										 :data => @posts}
@@ -25,12 +25,12 @@ class Api::V1::UsersController < ApplicationController
 		user=User.find_by_authentication_token(params[:auth_token])
 		if user
 			@posts =  user.posts.paginate(:page => params[:page]).order('created_at DESC')
-			render :status => :unprocessable_entity,
+			render :status => :200,
 			:json => { :success => true,
 							 :info => user,
 							 :data => @posts }
 		else 
-			render :status => :unprocessable_entity,
+			render :status => :200,
 			:json => { :success => false,
 							 :info =>"上传要求：jpg ",
 							 :data => {} }      
@@ -39,7 +39,7 @@ class Api::V1::UsersController < ApplicationController
 
 	def upload
 		@image = params[:image]
-		render :status => :unprocessable_entity,
+		render :status => :200,
 					 :json => { :success => false,
 										 :info =>" @task.errors.full_messages",
 										 :data => {} }

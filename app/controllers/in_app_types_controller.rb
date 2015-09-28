@@ -32,7 +32,7 @@ class InAppTypesController < ApplicationController
         format.json { render action: 'show', status: :created, location: @in_app_type }
       else
         format.html { render action: 'new' }
-        format.json { render json: @in_app_type.errors, status: :unprocessable_entity }
+        format.json { render json: @in_app_type.errors, status: :200 }
       end
     end
   end
@@ -46,7 +46,7 @@ class InAppTypesController < ApplicationController
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @in_app_type.errors, status: :unprocessable_entity }
+        format.json { render json: @in_app_type.errors, status: :200 }
       end
     end
   end

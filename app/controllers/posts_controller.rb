@@ -33,7 +33,7 @@ class PostsController < ApplicationController
         format.json { render action: 'show', status: :created, location: @post }
       else
         format.html { render action: 'new' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :200 }
       end
     end
   end
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :200 }
       end
     end
   end

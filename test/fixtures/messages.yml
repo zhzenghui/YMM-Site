@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender: 1
+  receive: 1
+  last_msg: MyString
+  status: 1
+  type: 1
+  isDel: 1
+
+two:
+  sender: 1
+  receive: 1
+  last_msg: MyString
+  status: 1
+  type: 1
+  isDel: 1

@@ -43,7 +43,33 @@ Yue::Application.routes.draw do
   namespace :api do
     namespace :v1 do
 
-      get 'populer' => 'post#populer'
+      post 'validate' => 'receipts#validate'
+
+      get "rece" => "receipts#v"
+      
+
+      post 'online' => 'online#create'
+
+      post 'online/:id/comments' => 'online#comments' 
+
+      post 'message/send' => 'message#sender'
+      post 'message/find_by_message' => 'message#find_by_message'
+      post 'message/find_by_messageDetail' => 'message#find_by_messageDetail'
+
+      post 'message/readMessage' => 'message#readMessage'
+      post 'message/delMessage' => 'message#delMessage'
+
+
+
+      get 'populer' => 'online#populer'
+
+      get 'online/my_list' => 'online#my_list' 
+      get 'online/new_online' => 'online#new_online' 
+      get 'online_detail' => 'online#online_detail' 
+
+      get 'tags' => 'tag#tag_for_keyworld' 
+
+      get 'tag_hot' => 'tag#tag_hot' 
 
       devise_scope :user do
 
@@ -63,6 +89,7 @@ Yue::Application.routes.draw do
         post "upload" => 'post#upload', :as => 'upload'
 
 
+        get "getsp" => "upyun#getsp", :as => "getsp"
         
         get "test" => 'test#index', :as => 'test'
         post 'test' => 'test#test'

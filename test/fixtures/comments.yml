@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  commenter: MyString
-  body: MyText
-  post_id: 
+  content: MyText
+  user_id: 
+  zan_count: 1
+  online_detail: 
 
 two:
-  commenter: MyString
-  body: MyText
-  post_id: 
+  content: MyText
+  user_id: 
+  zan_count: 1
+  online_detail: 

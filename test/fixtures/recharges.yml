@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  type: 1
+  type_price: 1
+  success: 1
+  pingju_content: MyText
+  apple_validate: 1
+  people_validate: 1
+  revalidate: 1
+
+two:
+  user_id: 1
+  type: 1
+  type_price: 1
+  success: 1
+  pingju_content: MyText
+  apple_validate: 1
+  people_validate: 1
+  revalidate: 1

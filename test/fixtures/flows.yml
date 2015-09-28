@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_name: MyString
+  product_id: 1
+  product_price: 1
+  type: 1
+  iap_list_id: 1
+  pay_status: 1
+  gathering: 1
+
+two:
+  user_name: MyString
+  product_id: 1
+  product_price: 1
+  type: 1
+  iap_list_id: 1
+  pay_status: 1
+  gathering: 1

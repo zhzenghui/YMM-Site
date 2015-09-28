@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  jinbi: 1
+  ruanmeibi: 1
+  xingyunbi: 1
+
+two:
+  jinbi: 1
+  ruanmeibi: 1
+  xingyunbi: 1

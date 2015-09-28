@@ -1,0 +1,1182 @@
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "a_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "status" integer, "album_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.4ms)[0m  select sqlite_version(*)
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_a_comments_on_album_id" ON "a_comments" ("album_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "albums" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "text" text, "publish" integer, "free" boolean, "user_id" integer, "url" varchar(255), "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_albums_on_user_id" ON "albums" ("user_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "commenter" varchar(255), "body" text, "post_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.8ms)[0m  [1mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "images" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "in_app_types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "display_name" varchar(255), "in_app_type" varchar(255), "description" text, "apple_id" varchar(255), "apple_bundle_id" varchar(255), "apple_type" varchar(255), "price" decimal, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "photos" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "buyShow" boolean, "is_conver" boolean, "album_id" integer, "status" integer, "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime) 
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_photos_on_album_id" ON "photos" ("album_id")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "text" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime, "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "post_url" varchar(255)) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "relationships" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "follower_id" integer, "followed_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "tagger_id" integer, "tagger_type" varchar(255), "context" varchar(128), "created_at" datetime) 
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "taggings_idx" ON "taggings" ("tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='taggings_idx' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='taggings_idx' AND type='index'
+
+  [1m[36m (0.9ms)[0m  [1mCREATE  INDEX "index_taggings_on_taggable_id_and_taggable_type_and_context" ON "taggings" ("taggable_id", "taggable_type", "context")[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "taggings_count" integer DEFAULT 0) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_tags_on_name" ON "tags" ("name")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "name" varchar(255), "username" varchar(255), "brief" varchar(255), "introduction" varchar(255), "authentication_token" varchar(255), "lock" varchar(255), "lockdate" varchar(255), "avatar" varchar(255), "avatar_file_name" varchar(255), "avatar_content_type" varchar(255), "avatar_file_size" integer, "avatar_updated_at" datetime, "user_type" varchar(255), "pulish_type" varchar(255), "sender_type" integer, "sender_id" varchar(255), "balance" varchar(255)) 
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_authentication_token" ON "users" ("authentication_token")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_authentication_token' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "versions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "item_type" varchar(255) NOT NULL, "item_id" integer NOT NULL, "event" varchar(255) NOT NULL, "whodunnit" varchar(255), "object" text, "created_at" datetime) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX "index_versions_on_item_type_and_item_id" ON "versions" ("item_type", "item_id")
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "votable_id" integer, "votable_type" varchar(255), "voter_id" integer, "voter_type" varchar(255), "vote_flag" boolean, "vote_scope" varchar(255), "vote_weight" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX "index_votes_on_votable_id_and_votable_type_and_vote_scope" ON "votes" ("votable_id", "votable_type", "vote_scope")
+  [1m[36m (0.4ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_votes_on_votable_id_and_votable_type_and_vote_scope' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_votes_on_votable_id_and_votable_type_and_vote_scope' AND type='index'
+[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX "index_votes_on_voter_id_and_voter_type_and_vote_scope" ON "votes" ("voter_id", "voter_type", "vote_scope")
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141210130757')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140314075005')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140330071632')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140402155508')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140403162501')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140403163131')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140405075938')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140405083225')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140412143744')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140412153142')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140412153143')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140412153144')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140412161009')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140414171135')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140417154936')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140417155735')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140417161720')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140417161802')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140602141741')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140602160728')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140621145905')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140702153010')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140826102153')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Unable to load ablum, underlying cause No such file to load -- ablum 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+Unable to load attachment, underlying cause No such file to load -- attachment 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+Unable to load image, underlying cause No such file to load -- image 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+Unable to load tagging, underlying cause No such file to load -- tagging 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+Unable to load tag, underlying cause No such file to load -- tag 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.8ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:18', '2014-12-24 14:31:18', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Unable to load ablum, underlying cause No such file to load -- ablum 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+Unable to load attachment, underlying cause No such file to load -- attachment 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+Unable to load image, underlying cause No such file to load -- image 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+Unable to load tagging, underlying cause No such file to load -- tagging 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+Unable to load tag, underlying cause No such file to load -- tag 
+
+ /Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:348:in `require_or_load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:307:in `depend_on'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:225:in `require_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:862:in `try_to_load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:881:in `block in require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activerecord-4.1.0/lib/active_record/fixtures.rb:857:in `fixtures'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:12:in `<class:TestCase>'
+/Users/zenghui/Documents/github/YMM-Site/test/test_helper.rb:5:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/Documents/github/YMM-Site/test/helpers/ablums_helper_test.rb:1:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `block in require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:232:in `load_dependency'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/activesupport-4.1.0/lib/active_support/dependencies.rb:247:in `require'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (3 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:114:in `block (2 levels) in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:113:in `block in define'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:201:in `block in invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:199:in `invoke_prerequisites'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:178:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/sub_test_task.rb:20:in `invoke_rake_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/railties-4.1.0/lib/rails/test_unit/testing.rake:8:in `block in <top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `call'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:240:in `block in execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:235:in `execute'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:179:in `block in invoke_with_call_chain'
+/Users/zenghui/.rvm/rubies/ruby-2.1.0/lib/ruby/2.1.0/monitor.rb:211:in `mon_synchronize'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:172:in `invoke_with_call_chain'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/task.rb:165:in `invoke'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:150:in `invoke_task'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block (2 levels) in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `each'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:106:in `block in top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:115:in `run_with_threads'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:100:in `top_level'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:78:in `block in run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:176:in `standard_exception_handling'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/lib/rake/application.rb:75:in `run'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/gems/rake-10.3.2/bin/rake:33:in `<top (required)>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `load'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/rake:23:in `<main>'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `eval'
+/Users/zenghui/.rvm/gems/ruby-2.1.0/bin/ruby_executable_hooks:15:in `<main>'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (3.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "a_comments"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)[0m
+SQLite3::SQLException: table a_comments has no column named ablum_id: INSERT INTO "a_comments" ("content", "status", "ablum_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, NULL, '2014-12-24 14:31:33', '2014-12-24 14:31:33', 980190962)
+  [1m[35m (0.6ms)[0m  rollback transaction
